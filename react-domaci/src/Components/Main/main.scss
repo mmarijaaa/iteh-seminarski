@@ -1,0 +1,153 @@
+:root{
+    --PrimaryColor: #eedac2;
+    --SecondaryColor: #e5a88b;
+    --gradientColor: linear-gradient(to right, #cf7956, #e5a88b);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: #646763;
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(230, 223, 223);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+    --cardHoover: rgb(255, 255, 255);
+    --subtitleTextColor: #444955; 
+    
+}
+
+.main{
+    width: 100%;
+
+    .secTitle{
+        .title{
+            position: relative;
+            width: max-content;
+            color: var(--textColor);
+            margin: 1rem 0;
+            z-index: 2;
+
+            &::after{
+                position: absolute;
+                content: '';
+                background: var(--SecondaryColor);
+                height: 5px;
+                width: 120px;
+                right: 0;
+                bottom: 5px;
+                z-index: -1;
+            }
+        }
+    }
+
+    .secContent{
+        justify-content: center;
+        gap: 1.5rem;
+
+        .singleArtical{
+            height: 100%;
+            display: grid;
+            row-gap: 10px;
+            padding: 1rem;
+            border-radius: 10px;
+            align-items: center;
+            background: var(--cardBG);
+            box-shadow: 0 2px 4px rgba(140, 140, 141, 0.55);
+            overflow: hidden;
+
+            &:hover{
+                background: var(--cardHoover);
+                box-shadow: 1 4px 4px rgba(85, 85, 114, 0.55);
+                transition: .3s ease;
+            }
+
+            .imageDiv{
+                height: 180px;
+                width: 100%;
+                overflow: hidden;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    transition: 2s ease;
+                }
+
+                &:hover{
+
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .cardInfo{
+                padding: 1rem;
+
+                .artTitle{
+                    color: var(--blackColor);
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                }
+                
+                h5{
+                    border-bottom: 2px solid var(--greyText);
+                    color: var(--subtitleTextColor)
+                }
+
+                .content{
+                    gap: .7rem;
+                }
+                
+                p{
+                    font-size: 13.5px;
+                    color: var(--textColor);
+                    font-weight: 400;
+                }
+
+                .btn{
+                    margin-top: 1rem;
+                    color: var(--whiteColor);
+                    font-weight: 600;
+                    justify-content: space-between;
+                    gap: .5rem;
+                }
+            }
+        }
+    }
+}
+
+/*media*/
+
+@media screen and (min-width:500px) {
+    .secTitle{
+        font-size: 1.5rem;
+        &::after{
+            width: 155px !important;
+        }
+    }
+    .secContent{
+        grid-template-columns: repeat(2,1fr);
+
+        .singleArtical{
+            height: auto;
+        }
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .secContent{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .singleArtical{
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .secContent{
+        grid-template-columns: repeat(6,1fr);
+    }
+    .singleArtical{
+        height: auto;
+    }
+}

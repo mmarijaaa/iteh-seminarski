@@ -1,0 +1,71 @@
+:root{
+    --PrimaryColor: #eedac2;
+    --SecondaryColor: #e5a88b;
+    --gradientColor: linear-gradient(to right, #cf7956, #e5a88b);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: #646763;
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(230, 223, 223);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+    --cardHoover: rgb(255, 255, 255);
+    --subtitleTextColor: #444955; 
+    
+}
+.blog{
+    padding: 100px;
+}
+
+.paginationButns{
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+.paginationButns a{
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--SecondaryColor);
+    background-color: var(--SecondaryColor);
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.paginationButns a:hover{
+    background-color: whitesmoke;
+    color: var(--SecondaryColor);
+}
+
+.naslov{
+    padding: 35px;
+}
+
+.slika{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-bottom: 35px;
+}
+.podnaslov{
+    padding-bottom: 10px;
+}
+.tekst{
+    padding-left: 20px;
+    padding-bottom: 50px;
+}
+
+/*media*/
+
+@media screen and (max-width: 770px) {
+    .blog{
+        padding-top: 150px;
+    }
+}
+

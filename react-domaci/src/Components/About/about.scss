@@ -1,0 +1,108 @@
+:root{
+    --PrimaryColor: #eedac2;
+    --SecondaryColor: #e5a88b;
+    --gradientColor: linear-gradient(to right, #cf7956, #e5a88b);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: #646763;
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(230, 223, 223);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+    --cardHoover: rgb(255, 255, 255);
+    --subtitleTextColor: #444955; 
+    
+}
+
+
+.o-meni {
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+
+.red-a {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.o-meni-col {
+    margin: 30px;
+    flex: 1;
+    padding: 30px 2px;
+}
+
+
+.profilna {
+    max-width: 250px;
+    border-radius: 1.5rem;
+}
+
+.o-meni-col h1 {
+    color: var(--textColor);
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.o-meni-col p {
+    color: var(--textColor);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.o-meni-col .potpis{
+    font-family: 'Allura', cursive;
+    font-size: 2rem;
+}
+
+.vise {
+    border: 1px solid #DF646E;
+    background: transparent;
+    color: #DF646E;
+}
+
+.vise:hover {
+    color: white;
+}
+
+
+/*media*/
+
+@media(max-width:700px) {
+
+   
+    .o-meni {
+        
+        width: 80%;
+        margin: auto;
+    }
+
+    .red-a {
+       
+        display: block;
+        padding-top: 0;
+    }
+    .profilna{
+        margin-top: 200px;
+        position: relative;
+    }
+
+    .o-meni-col {
+        
+        //margin-top: 30px;
+        flex-basis: 48%;
+        padding: 10px 2px;
+    }
+
+    .o-meni-col h1 {
+        padding-left: 20px;
+        font-size: 20px;
+        padding-top: 20px;
+    }
+}

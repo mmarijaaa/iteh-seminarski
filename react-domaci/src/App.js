@@ -1,0 +1,59 @@
+import React from 'react'
+import './app.css'
+import Footer from './Components/Footer/Footer'
+import Home from './Components/Home/Home'
+import Main from './Components/Main/Main'
+import Navbar from './Components/Navbar/Navbar'
+import Blog from './Components/Blog/Blog'
+import Ab from './Components/About/Ab'
+import Pocetna from './Pages/Pocetna'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import LoginDoktor from './Components/LoginDoktor';
+import LoginPacijent from './Components/LoginPacijent';
+import RegisterDoktor from './Components/RegisterDoktor';
+import RegisterPacijent from './Components/RegisterPacijent';
+import ProfilDoktora from './Components/ProfilDoktora';
+import ProfilPacijenta from './Components/ProfilPacijenta';
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      
+      <Navbar/>
+      
+      <Routes>
+        
+        <Route path='/' element={<Pocetna/>}></Route>
+        
+        <Route path='/about' element={<Ab/>}></Route>
+
+        <Route path='/blog' element={<Blog/>}></Route>
+
+        <Route path='/register' element={<RegisterDoktor/>}></Route> 
+
+        <Route path='/login' element={<LoginDoktor/>}></Route> 
+
+        <Route path='/registerpacijent' element={<RegisterPacijent/>}></Route> 
+
+        <Route path='/loginpacijent' element={<LoginPacijent/>}></Route> 
+
+        <Route path='/profildoktora' element={<ProfilDoktora/>}></Route>
+
+        <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
+
+        
+      </Routes> 
+
+    <Footer/>
+      
+    </BrowserRouter>
+    /*<>
+    <Navbar/>
+    <Home/>
+    <Main/>
+    <Footer/>
+    </>*/
+  )
+}
+
+export default App
