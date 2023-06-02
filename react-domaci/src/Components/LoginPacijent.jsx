@@ -5,7 +5,7 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 
 
-const LoginPacijent = () => {
+const LoginPacijent = ({addToken2}) => {
 
     const [pacijentData, setPacijentData] = useState({
         email:"",
@@ -28,7 +28,8 @@ const LoginPacijent = () => {
         .then((res)=> {
             console.log(res.data);  
             if(res.data.success === true) {
-                window.sessionStorage.setItem("auth_token", res.data.access_token); 
+                window.sessionStorage.setItem("auth_token2", res.data.access_token); 
+                addToken2(res.data.access_token);
                 navigate("/profilpacijenta");
             }
         })
