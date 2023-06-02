@@ -14,12 +14,26 @@ import RegisterDoktor from './Components/RegisterDoktor';
 import RegisterPacijent from './Components/RegisterPacijent';
 import ProfilDoktora from './Components/ProfilDoktora';
 import ProfilPacijenta from './Components/ProfilPacijenta';
+import { useState } from 'react';
+
 
 const App = () => {
+
+  const [token, setToken] = useState();
+  function addToken(auth_token) {
+    setToken(auth_token);
+  }
+
+  const [token2, setToken2] = useState();
+  function addToken2(auth_token2) {
+    setToken2(auth_token2);
+  }
+
+
   return (
     <BrowserRouter>
       
-      <Navbar/>
+      <Navbar token={token} token2={token2}/>
       
       <Routes>
         
@@ -31,11 +45,11 @@ const App = () => {
 
         <Route path='/register' element={<RegisterDoktor/>}></Route> 
 
-        <Route path='/login' element={<LoginDoktor/>}></Route> 
+        <Route path='/login' element={<LoginDoktor addToken={addToken} />}></Route> 
 
         <Route path='/registerpacijent' element={<RegisterPacijent/>}></Route> 
 
-        <Route path='/loginpacijent' element={<LoginPacijent/>}></Route> 
+        <Route path='/loginpacijent' element={<LoginPacijent addToken2={addToken2} />}></Route> 
 
         <Route path='/profildoktora' element={<ProfilDoktora/>}></Route>
 

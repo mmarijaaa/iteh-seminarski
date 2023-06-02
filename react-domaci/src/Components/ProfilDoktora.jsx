@@ -9,6 +9,8 @@ const ProfilDoktora = () => {
             <h1>PROFIL DOKTORA JEEEEJ</h1>
         </div>
 
+        
+
     );
 
 };

@@ -29,13 +29,15 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
         return auth()->user();
     });
 
+    Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
+
     Route::post('/logout', [DRController::class, 'logout']);
  
 });
 
 
 
-Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
+//Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
 Route::post('/loginpacijent', [PacijentController::class, 'loginpacijent']);
 
 Route::group(['middleware'=> ['auth:sanctum','abilities:pacijent']], function() {
