@@ -4,7 +4,8 @@ import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 
-const RegisterPacijent = () => {
+
+const RegisterPacijent = ({token}) => {
 
     const [pacijentData, setPacijentData] = useState({
         name:"",
@@ -12,7 +13,8 @@ const RegisterPacijent = () => {
         roditelj:"",
         godine:"", 
         email:"",
-        password:""
+        password:"",
+        id_doktor:""
     });
 
     let navigate = useNavigate();
@@ -24,18 +26,27 @@ const RegisterPacijent = () => {
     }
 
     function handleRegister(e) {
-        e.preventDefault(); 
-        axios
-        .post("http://127.0.0.1:8000/api/registerpacijent",   
-        pacijentData)
-        .then((res)=> {
-            console.log(res.data);  
-            navigate("/loginpacijent");
-        })
-        .catch((e)=> {
-            console.log(e);
-        });
+        e.preventDefault();
+        var config = {
+            method: 'post',
+            url: 'http://127.0.0.1:8000/api/registerpacijent',
+            headers: {
+              'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"),
+              //'Authorization': 'Bearer '+token,
+            },
+            data: pacijentData,
+          };
+          axios(config)
+          .then((response) => {
+            console.log(JSON.stringify(response.data));
+            //console.log("Uspelo kreiranje pacijenta");  
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
+
+
 
 
     return (

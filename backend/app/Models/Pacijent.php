@@ -26,6 +26,7 @@ class Pacijent extends Authenticatable
         'roditelj',
         'godine',
         'password',
+        'id_doktor'
     ];
 
     /**
@@ -46,4 +47,8 @@ class Pacijent extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function doktor(){
+        return $this->belongsTo(User::class, 'id_doktor');
+    }
 }

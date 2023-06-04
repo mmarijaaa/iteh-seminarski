@@ -15,6 +15,8 @@ import RegisterPacijent from './Components/RegisterPacijent';
 import ProfilDoktora from './Components/ProfilDoktora';
 import ProfilPacijenta from './Components/ProfilPacijenta';
 import { useState } from 'react';
+import ListaPacijenata from './Components/ListaPacijenata'
+import Pacijent from './Components/Pacijent'
 
 
 const App = () => {
@@ -47,13 +49,21 @@ const App = () => {
 
         <Route path='/login' element={<LoginDoktor addToken={addToken} />}></Route> 
 
-        <Route path='/registerpacijent' element={<RegisterPacijent/>}></Route> 
-
+        <Route path='/registerpacijent' element={<RegisterPacijent addToken={addToken}/>}></Route> 
         <Route path='/loginpacijent' element={<LoginPacijent addToken2={addToken2} />}></Route> 
 
-        <Route path='/profildoktora' element={<ProfilDoktora/>}></Route>
+        <Route path='/profildoktora' element={<ProfilDoktora/>}>
 
+         
+        
+        </Route>
+        
+        <Route path='/listapacijenata' element={<ListaPacijenata />}/>
+        <Route path='/pacijent' element={<Pacijent />}/>
         <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
+
+        
+
 
         
       </Routes> 

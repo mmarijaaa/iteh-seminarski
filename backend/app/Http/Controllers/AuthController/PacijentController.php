@@ -32,12 +32,22 @@ class PacijentController extends Controller
             'jmbg'=>$request->jmbg,
             'roditelj'=>$request->roditelj,
             'godine'=>$request->godine,
-            'password'=>Hash::make($request->password)
+            'password'=>Hash::make($request->password),
+            'id_doktor'=>Auth::user()->id
+            //@if(Auth::id() == $offerz -> id_doktor)
+
         ]);
 
         $token=$user->createToken('auth_token')->plainTextToken;
 
         return response()->json(['data'=>$user, 'access_token'=>$token, 'token_type'=>'Bearer']);
+    }
+
+    public function vratiPacijenteSaIdDoktora($id_doktor){
+        $pacijenti = Pacijent::get()->where('id_doktor', $id_doktor);
+        if(is_null($pacijenti))
+            return response()->json('Data not found', 404);
+        return response()->json($pacijenti);
     }
 
     public function loginpacijent(Request $request) 
@@ -52,7 +62,7 @@ class PacijentController extends Controller
 
     public function logoutpacijent()
     {
-         auth()->user()->tokens()->delete();
+         //auth()->user()->tokens()->delete();
         return['message'=>"Uspesno izlogovan pacijent."];
     }
 }

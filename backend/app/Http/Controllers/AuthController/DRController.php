@@ -46,7 +46,7 @@ class DRController extends Controller
 
     public function logout()
     {
-        auth()->user()->tokens()->delete();
+        //auth()->user()->tokens()->delete();
         return['message'=>"Uspesno izlogovani."];
     }
 }
