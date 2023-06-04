@@ -12,3 +12,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.listapacijenata{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 450px;
+}

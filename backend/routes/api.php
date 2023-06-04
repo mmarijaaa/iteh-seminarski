@@ -36,7 +36,7 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
 });
 
 
-
+Route::get('/doktor/{id}/pacijent', [PacijentController::class, 'vratiPacijenteSaIdDoktora']);
 //Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
 Route::post('/loginpacijent', [PacijentController::class, 'loginpacijent']);
 

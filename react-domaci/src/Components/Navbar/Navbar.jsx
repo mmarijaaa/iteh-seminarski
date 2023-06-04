@@ -6,6 +6,7 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
 import logo from '../..//assets/logo34.png'
 import axios from "axios";
+import { Outlet } from 'react-router-dom';
 
 const Navbar = ({token, token2}) => {
 
@@ -59,6 +60,7 @@ const Navbar = ({token, token2}) => {
   }
 
   return (
+    <div>
     <section className="navBarSection">
       <header className="header flex">
 
@@ -107,8 +109,13 @@ const Navbar = ({token, token2}) => {
 
             <div>
             <li className="navItem">
-              <Link to="/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
+              <Link to="/profildoktora/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
             </li>
+
+            <li className="navItem">
+              <Link to="/listapacijenata" className="navLink" >LISTA PACIJENATA </Link>
+            </li>
+            
 
             <li className="navItem">
               <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
@@ -147,6 +154,8 @@ const Navbar = ({token, token2}) => {
 
       </header>
     </section>
+    <Outlet />
+    </div>
   )
 }
 
