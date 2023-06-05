@@ -18,5 +18,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 450px;
+    padding: 150px;
+}
+
+.pacijenti {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border: 2px black solid;
 }

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\PacijentResource; 
+use App\Http\Resources\PacijentCollection; 
+
 
 class PacijentController extends Controller
 {
@@ -32,7 +35,8 @@ class PacijentController extends Controller
             'jmbg'=>$request->jmbg,
             'roditelj'=>$request->roditelj,
             'godine'=>$request->godine,
-            'password'=>Hash::make($request->password),
+            //'password'=>Hash::make($request->password),
+            'password'=>$request->password,
             'id_doktor'=>Auth::user()->id
             //@if(Auth::id() == $offerz -> id_doktor)
 
@@ -50,6 +54,20 @@ class PacijentController extends Controller
         return response()->json($pacijenti);
     }
 
+    public function pacijenti() {
+        
+        $pacijenti = Pacijent::all();
+        return $pacijenti;
+    }
+
+    public function show() {
+        return new PacijentCollection(Pacijent::all());
+    }
+
+    public function index(Pacijent $pacijent) { 
+        return new PacijentResource($pacijent);
+    }
+
     public function loginpacijent(Request $request) 
     {
        if(!Auth::guard('pacijent')->attempt($request->only('email', 'password')))
@@ -64,6 +82,31 @@ class PacijentController extends Controller
     {
          //auth()->user()->tokens()->delete();
         return['message'=>"Uspesno izlogovan pacijent."];
+    }
+
+    public function izmeni(Request $request, Pacijent $pacijent) {
+
+        $validator=Validator::make($request->all(),[
+            'name'=>'required|string|max:255',
+            'jmbg'=>'required|string|max:13',
+            'roditelj'=>'required|string|max:255',
+            'godine'=>'required',
+            'email'=>'required|string',
+            'password'=>'required|string|min:8'
+        ]);
+
+        if($validator->fails())
+            return response()->json($validator->errors());
+
+        $pacijent->name=$request->name;
+        $pacijent->jmbg=$request->jmbg;
+        $pacijent->roditelj=$request->roditelj;
+        $pacijent->godine=$request->godine;
+        $pacijent->email=$request->email;
+        $pacijent->password=$request->password;
+ 
+
+        return response()->json(['Pacijent uspesno azuriran.', new PacijentResource($pacijent)]); 
     }
 }
 
