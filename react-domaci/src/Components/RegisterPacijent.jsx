@@ -17,7 +17,7 @@ const RegisterPacijent = ({token}) => {
         id_doktor:""
     });
 
-    let navigate = useNavigate();
+    //let navigate = useNavigate();
 
     function handleInput(e) {
          let newPacijentData = pacijentData;

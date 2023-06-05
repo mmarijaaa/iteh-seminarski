@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController\DRController;
-use App\Http\Controllers\AuthController\PacijentController; 
-
+use App\Http\Controllers\AuthController\PacijentController;  
+use App\Http\Controllers\DoktorPacijentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,12 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
 
 
 Route::get('/doktor/{id}/pacijent', [PacijentController::class, 'vratiPacijenteSaIdDoktora']);
+Route::get('/pacijenti', [PacijentController::class, 'pacijenti']);
+Route::get('/svipacijenti', [PacijentController::class, 'show']);
+Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
+Route::post('/pacijent/{id}', [PacijentController::class, 'izmeni']); 
+
+
 //Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
 Route::post('/loginpacijent', [PacijentController::class, 'loginpacijent']);
 

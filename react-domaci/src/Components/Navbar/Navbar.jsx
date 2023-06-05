@@ -33,6 +33,8 @@ const Navbar = ({token, token2}) => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token",null);
+      window.sessionStorage.setItem("user_id",null);
+
     })
     .catch((error) => {
       console.log(error);
@@ -109,7 +111,7 @@ const Navbar = ({token, token2}) => {
 
             <div>
             <li className="navItem">
-              <Link to="/profildoktora/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
+              <Link to="/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
             </li>
 
             <li className="navItem">

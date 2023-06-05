@@ -41,7 +41,8 @@ class DRController extends Controller
         
         $user=User::where('email', $request['email'])->firstOrFail();
         $token=$user->createToken('auth_token')->plainTextToken;
-        return response()->json(['success'=>true, 'access_token'=>$token, 'token_type'=>'Bearer']);
+        $user_id = $user->id;
+        return response()->json(['success'=>true, 'access_token'=>$token, 'token_type'=>'Bearer', 'user_id'=> $user_id]);
     }
 
     public function logout()
