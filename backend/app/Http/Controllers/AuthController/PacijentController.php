@@ -84,7 +84,7 @@ class PacijentController extends Controller
         return['message'=>"Uspesno izlogovan pacijent."];
     }
 
-    public function izmeni(Request $request, Pacijent $pacijent) {
+    public function update(Request $request, $id) {
 
         $validator=Validator::make($request->all(),[
             'name'=>'required|string|max:255',
@@ -92,21 +92,33 @@ class PacijentController extends Controller
             'roditelj'=>'required|string|max:255',
             'godine'=>'required',
             'email'=>'required|string',
-            'password'=>'required|string|min:8'
+            //'password'=>'required|string|min:8'
         ]);
 
-        if($validator->fails())
+        if($validator->fails()){
             return response()->json($validator->errors());
+            
+        }
+        $pacijent=Pacijent::find($id);
+
 
         $pacijent->name=$request->name;
         $pacijent->jmbg=$request->jmbg;
         $pacijent->roditelj=$request->roditelj;
         $pacijent->godine=$request->godine;
         $pacijent->email=$request->email;
-        $pacijent->password=$request->password;
- 
+       // $pacijent->password=$request->password;
 
-        return response()->json(['Pacijent uspesno azuriran.', new PacijentResource($pacijent)]); 
+
+        $pacijent->save();
+
+        return response()->json(['Pacijent uspesno azuriran.', $pacijent]); 
+    }
+
+    public function destroy($id){
+        $pacijent=Pacijent::find($id);
+        $pacijent->delete();
+        return response()->json('Pacijent uspesno obrisan'); 
     }
 }
 
