@@ -16,13 +16,13 @@ class PacijentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->id,
-            'name'=>$this->name,
-            'jmbg'=>$this->jmbg,
-            'roditelj'=>$this->roditelj,
-            'godine'=>$this->godine,
-            'email'=>$this->email,
-            'id_doktor'=>$this->id_doktor 
+            'id'=>$this->resource->id,
+            'name'=>$this->resource->name,
+            'jmbg'=>$this->resource->jmbg,
+            'roditelj'=>$this->resource->roditelj,
+            'godine'=>$this->resource->godine,
+            'email'=>$this->resource->email,
+            'id_doktor'=>$this->resource->id_doktor 
         ];
     }
 }
