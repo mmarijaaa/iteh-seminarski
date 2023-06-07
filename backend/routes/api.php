@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController\DRController;
 use App\Http\Controllers\AuthController\PacijentController;  
 use App\Http\Controllers\DoktorPacijentController;
+use App\Http\Controllers\PregledController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
     });
 
     Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
+
+    Route::post('/pregledpacijent/{id}', [PregledController::class, 'store']);
+
+    Route::put('/izmenapregled/{id}', [PregledController::class, 'update']);
 
     Route::post('/logout', [DRController::class, 'logout']);
  

@@ -2,6 +2,8 @@ import React from 'react'
 import './forme.css';
 import { useState } from 'react';
 import axios from 'axios'; 
+import {useNavigate} from 'react-router-dom';
+
 
 const Pacijent = ({pacijent}) => {
 
@@ -14,6 +16,8 @@ const Pacijent = ({pacijent}) => {
     
     //id_doktor:""
   });
+
+  let navigate = useNavigate();
 
   function handlePrikaz() {
     console.log("PRIKAZ");
@@ -33,7 +37,7 @@ const Pacijent = ({pacijent}) => {
         pacijentData)
         .then((res)=> {
             console.log(res.data);  
-            //navigate("/login"); 
+             
         })
         .catch((e)=> {
             console.log(e); 
@@ -47,11 +51,16 @@ const Pacijent = ({pacijent}) => {
         .delete("http://127.0.0.1:8000/api/brisanjepacijenta/"+idpac)
         .then((res)=> {
             console.log("Obrisano");  
-            //navigate("/login"); 
+          
         })
         .catch((e)=> {
             console.log(e); 
         });
+  }
+
+  function handlePregled() {
+    window.sessionStorage.setItem("pacijent_id", pacijent.id);
+    navigate("/pregled"); 
   }
 
   return (
@@ -84,6 +93,9 @@ const Pacijent = ({pacijent}) => {
         </button>
         <button onClick={handleBrisanje}>
           OBRISI PACIJENTA
+        </button>
+        <button onClick={handlePregled}>
+          ZAKAZI PREGLED
         </button>
     </div>
 

@@ -4,13 +4,14 @@ import Pacijent from './Pacijent';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
+
 const ListaPacijenata = () => {
     const [pacijents, setPacijents] = useState();
     let iddok = window.sessionStorage.getItem("user_id");
     useEffect(()=>{
       if(pacijents == null) {
         axios
-        .get('http://127.0.0.1:8000/api/doktor/'+ iddok)
+        .get('http://127.0.0.1:8000/api/doktor/'+ iddok) 
         .then((res)=>{ 
         console.log(res.data);
         setPacijents(res.data.pacijenti);
@@ -19,6 +20,7 @@ const ListaPacijenata = () => {
     }, [pacijents]
     );
    
+  
 
   return (
     <div className="listapacijenata">

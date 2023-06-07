@@ -16,7 +16,8 @@ import ProfilDoktora from './Components/ProfilDoktora';
 import ProfilPacijenta from './Components/ProfilPacijenta';
 import { useState } from 'react';
 import ListaPacijenata from './Components/ListaPacijenata'
-import Pacijent from './Components/Pacijent'
+//import Pacijent from './Components/Pacijent'
+import Pregled from './Components/Pregled'
 
 
 const App = () => {
@@ -62,7 +63,7 @@ const App = () => {
         
         <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
 
-        
+        <Route path='/pregled' element={<Pregled />}></Route>
 
 
         

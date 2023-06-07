@@ -30,23 +30,24 @@ class PregledController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $idpac)
     {
         $validator=Validator::make($request->all(), [
-            'datum_pregleda'=>'required|string|max:255',
-            'opis'=> 'required|string|max: 500',
+            'datum_pregleda'=> 'required',
+            'opis'=>'required|string|max:500'
         ]);
 
         if($validator->fails())
-            return response()->json($validator->errors());
+        return response()->json($validator->errors());
 
-        $pregled=Pregled::create([
+        $pregled = Pregled::create([
+            'id_doktor'=>Auth::user()->id,
+            'id_pacijent'=>$idpac,
             'datum_pregleda'=>$request->datum_pregleda,
             'opis'=>$request->opis,
-            'id_doktor'=>Auth::user()->id,
-            //'id_pacijent'=>
-            
         ]);
+
+        return response()->json(['Pregled uspesno kreiran.', $pregled]); 
 
     }
 
@@ -69,9 +70,24 @@ class PregledController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePregledRequest $request, Pregled $pregled)
+    public function update(Request $request, $id)
     {
-        //
+        $validator=Validator::make($request->all(), [
+            'datum_pregleda'=> 'required',
+            'opis'=>'required|string|max:500'
+        ]);
+
+        if($validator->fails())
+        return response()->json($validator->errors());
+
+        $pregled = Pregled::find($id);
+
+        $pregled->datum_pregleda=$request->datum_pregleda;
+        $pregled->opis=$request->opis; 
+
+        $pregled->save();
+
+        return response()->json(['Pregled uspesno azuriran.', $pregled]); 
     }
 
     /**

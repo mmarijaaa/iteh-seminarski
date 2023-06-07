@@ -39,4 +39,15 @@
     border: 2px black solid;
 }
 
+.pregled {
+    padding-top: 200px;
+}
+
+.formapregled {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+}
 
