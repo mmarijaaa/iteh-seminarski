@@ -8,15 +8,20 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdatePregledRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\PregledPacijentResource;
 
 class PregledController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id_doktor, $id_pacijent)
     {
-        //
+        $pregledi = Pregled::get()->where('id_doktor', $id_doktor)->where('id_pacijent',$id_pacijent);
+        if(is_null($pregledi))
+            return response()->json('Data not found', 404);
+        //return response()->json($pregledi);
+        return new PregledPacijentResource($pregledi); 
     }
 
     /**
@@ -38,7 +43,7 @@ class PregledController extends Controller
         ]);
 
         if($validator->fails())
-        return response()->json($validator->errors());
+        return response()->json($validator->errors()); 
 
         $pregled = Pregled::create([
             'id_doktor'=>Auth::user()->id,
@@ -97,4 +102,6 @@ class PregledController extends Controller
     {
         //
     }
+
+   
 }

@@ -39,7 +39,7 @@
     border: 2px black solid;
 }
 
-.pregled {
+.naslovpregled {
     padding-top: 200px;
 }
 
@@ -51,3 +51,14 @@
     padding: 70px;
 }
 
+.pregled {
+    display: flex;
+    flex-direction: row;
+}
+
+.listapregleda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

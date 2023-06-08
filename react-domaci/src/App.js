@@ -18,6 +18,8 @@ import { useState } from 'react';
 import ListaPacijenata from './Components/ListaPacijenata'
 //import Pacijent from './Components/Pacijent'
 import Pregled from './Components/Pregled'
+import Terapija from './Components/Terapija'
+import ListaPregledaDoktor from './Components/ListaPregledaDoktor'
 
 
 const App = () => {
@@ -55,7 +57,7 @@ const App = () => {
 
         <Route path='/profildoktora' element={<ProfilDoktora/>}>
 
-         
+       
         
         </Route>
         
@@ -65,6 +67,9 @@ const App = () => {
 
         <Route path='/pregled' element={<Pregled />}></Route>
 
+        <Route path='/listapregledadoktor' element={<ListaPregledaDoktor />}></Route>
+
+        <Route path='/terapija' element={<Terapija />}></Route>
 
         
       </Routes> 

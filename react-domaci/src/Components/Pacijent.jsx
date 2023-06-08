@@ -60,7 +60,7 @@ const Pacijent = ({pacijent}) => {
 
   function handlePregled() {
     window.sessionStorage.setItem("pacijent_id", pacijent.id);
-    navigate("/pregled"); 
+    navigate("/listapregledadoktor"); 
   }
 
   return (
