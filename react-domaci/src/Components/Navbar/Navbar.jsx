@@ -35,6 +35,8 @@ const Navbar = ({token, token2}) => {
       window.sessionStorage.setItem("auth_token",null);
       window.sessionStorage.setItem("user_id",null);
 
+      //window.location.reload(false);
+
     })
     .catch((error) => {
       console.log(error);
@@ -120,7 +122,7 @@ const Navbar = ({token, token2}) => {
             
 
             <li className="navItem">
-              <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
+              <a href="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </a>
             </li>
             </div>
               
@@ -128,7 +130,7 @@ const Navbar = ({token, token2}) => {
             
             <div>
               <li className="navItem">
-              <Link to="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </Link> 
+              <a href="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </a> 
             </li>
             </div>
 
