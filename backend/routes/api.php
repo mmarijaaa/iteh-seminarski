@@ -41,21 +41,27 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
     Route::put('/izmenapregled/{id}', [PregledController::class, 'update']);
 
     Route::post('/logout', [DRController::class, 'logout']);
- 
+
+    /////
+    Route::get('/terapija/{id}/{id_pac}/{id_preg}', [TerapijaController::class, 'index']);
 });
 
+    Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
+    Route::get('/pregledi/{id}/{parameter}', [PregledController::class, 'index']);
+    Route::put('/izmenapacijent/{id}', [PacijentController::class, 'update']);
+    Route::delete('/brisanjepacijenta/{id}', [PacijentController::class, 'destroy']);
+    Route::put('/izmenaterapija/{id}', [TerapijaController::class, 'update']);
+    
 
 Route::get('/doktor/{id}/pacijent', [PacijentController::class, 'vratiPacijenteSaIdDoktora']);
 Route::get('/pacijenti', [PacijentController::class, 'pacijenti']);
 Route::get('/svipacijenti', [PacijentController::class, 'show']);
 
-Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
-Route::get('/pregledi/{id}/{parameter}', [PregledController::class, 'index']);
+
 
 
 //Route::resource('/izmenapacijent', PacijentController::class)->only(['update']);
-Route::put('/izmenapacijent/{id}', [PacijentController::class, 'update']);
-Route::delete('/brisanjepacijenta/{id}', [PacijentController::class, 'destroy']);
+
 
 //Route::get('pregledi/{id}/{parameter}',[PregledController::class, 'vratiListuPregleda']);
 

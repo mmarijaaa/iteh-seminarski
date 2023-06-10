@@ -20,6 +20,8 @@ import ListaPacijenata from './Components/ListaPacijenata'
 import Pregled from './Components/Pregled'
 import Terapija from './Components/Terapija'
 import ListaPregledaDoktor from './Components/ListaPregledaDoktor'
+import TerapijaPacijent from './Components/TerapijaPacijenta'
+import TerapijaKreiranje from './Components/TerapijaKreiranje'
 
 
 const App = () => {
@@ -65,11 +67,15 @@ const App = () => {
         
         <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
 
-        <Route path='/pregled' element={<Pregled />}></Route>
+        <Route path='/pregled' element={<Pregled addToken={addToken} />}></Route>
 
         <Route path='/listapregledadoktor' element={<ListaPregledaDoktor />}></Route>
 
-        <Route path='/terapija' element={<Terapija />}></Route>
+        <Route path='/terapija' element={<Terapija addToken={addToken} />}></Route>
+
+        <Route path='/terapijapacijent' element={<TerapijaPacijent  />}></Route>
+
+        <Route path='/terapijakreiranje' element={<TerapijaKreiranje />}></Route>
 
         
       </Routes> 

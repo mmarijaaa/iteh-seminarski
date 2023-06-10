@@ -104,19 +104,19 @@ const Pacijent = ({pacijent}) => {
       <input type="hidden" onInput={handleInput} name="id" value={pacijentData.id}/>
       </div>
       <div className='ime'>
-      Pacijent: <input type="text"  name="name" onInput={handleInput} />
+      Pacijent: <input type="text"  name="name" onInput={handleInput} defaultValue={pacijentData.name}  />
       </div>
       <div className="jmbg">  
-        JMBG: <input type="text"  name="jmbg" onInput={handleInput} value={pacijentData.jmbg}/>
+        JMBG: <input type="text"  name="jmbg" onInput={handleInput} defaultValue={pacijentData.jmbg}/>
       </div>
       <div className="roditelj">
-        RODITLEJ: <input type="text"  name="roditelj" onInput={handleInput} value={pacijentData.roditelj}/> 
+        RODITLEJ: <input type="text"  name="roditelj" onInput={handleInput} defaultValue={pacijentData.roditelj}/> 
       </div>
       <div className="godine">
-        GODINE: <input type="text"  name="godine" onInput={handleInput} value={pacijentData.godine}/>
+        GODINE: <input type="text"  name="godine" onInput={handleInput} defaultValue={pacijentData.godine}/>
       </div>
       <div className="email">
-        EMAIL: <input type="text"  name="email" onInput={handleInput} value={pacijentData.email}/>
+        EMAIL: <input type="text"  name="email" onInput={handleInput} defaultValue={pacijentData.email}/>
       </div>
       
       <div className='iddok'>
