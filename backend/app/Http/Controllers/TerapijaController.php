@@ -6,6 +6,7 @@ use App\Models\Terapija;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTerapijaRequest;
 use App\Http\Requests\UpdateTerapijaRequest;
+use App\Http\Resources\TerapijaResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,13 @@ class TerapijaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id_doktor, $id_pacijent, $id_pregled)
     {
-        //
+        $terapije = Terapija::get()->where('id_doktor', $id_doktor)->where('id_pacijent',$id_pacijent)->where('id_pregled', $id_pregled);
+        if(is_null($terapije))
+            return response()->json('Data not found', 404);
+        //return response()->json($pregledi);
+        return new TerapijaResource($terapije); 
     }
 
     /**
@@ -73,9 +78,24 @@ class TerapijaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTerapijaRequest $request, Terapija $terapija)
+    public function update(Request $request,  $id_terapija)
     {
-        //
+        $validator=Validator::make($request->all(), [
+            'lekovi'=> 'required|string',
+            'nacin_primene'=>'required|string|max:500',
+            'komentar' => 'required|string|max:200'
+        ]);
+
+        if($validator->fails())
+        return response()->json($validator->errors());
+
+        $terapija=Terapija::find($id_terapija);
+        $terapija->lekovi=$request->lekovi;
+        $terapija->nacin_primene=$request->nacin_primene;
+
+        $terapija->save();
+        return response()->json(['Terapija uspesno azurirana.', $terapija]); 
+
     }
 
     /**
