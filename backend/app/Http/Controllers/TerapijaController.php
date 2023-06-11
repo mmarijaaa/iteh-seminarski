@@ -92,6 +92,7 @@ class TerapijaController extends Controller
         $terapija=Terapija::find($id_terapija);
         $terapija->lekovi=$request->lekovi;
         $terapija->nacin_primene=$request->nacin_primene;
+        $terapija->komentar = $request->komentar;
 
         $terapija->save();
         return response()->json(['Terapija uspesno azurirana.', $terapija]); 

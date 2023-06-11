@@ -4,18 +4,26 @@ import { useState, useEffect} from 'react';
 import axios from 'axios'; 
 import TerapijaKreiranje from './TerapijaKreiranje';
 import Terapija from './Terapija';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TerapijaPacijenta = () => {
 
-    const[terapijaData, SetTerapijaData]=useState();
+    const[terapijaData, setTerapijaData]=useState();
 
-    let id_doktor=window.sessionStorage.getItem("auth_token");
-    let id_pacijent=window.sessionStorage.getItem("pacijent_id");
-    let id_pregled=window.sessionStorage.getItem("pregled_id");
+    //let id_doktor=window.sessionStorage.getItem("user_id");
+    //let id_pacijent=window.sessionStorage.getItem("pacijent_id");
+    //let id_pregled=window.sessionStorage.getItem("pregled_id");
+
+    let navigate = useNavigate();
 
     useEffect(()=>{
 
         if(terapijaData == null) {
+
+          let id_doktor=window.sessionStorage.getItem("user_id");
+    let id_pacijent=window.sessionStorage.getItem("pacijent_id");
+    let id_pregled=window.sessionStorage.getItem("pregled_id");
   
             let config = {
                 method: 'get',
@@ -31,31 +39,51 @@ const TerapijaPacijenta = () => {
               axios.request(config)
               .then((response) => {
                 console.log(JSON.stringify(response.data));
-                SetTerapijaData(response.data.terapija);
+                setTerapijaData(response.data.terapija);
               })
               .catch((error) => {
                 console.log(error);
               });
-  
         }
   
       }, [terapijaData]
   
       );
-      return (
+
+      /*return (
+        <div>
         <div className="listapacijenata">
         
         {terapijaData == null ? 
-        <div className="text">        
-            <h1>kreiranje terapije</h1>
-        </div>
-        : terapijaData.map((terapija)=>(
-            <div className="text">
-                <h1>prikaz terapije</h1>
-            </div>
-        
+          
+          <h1>ne znam</h1>
+        : 
+        terapijaData.map((terapija)=>(
+          <Terapija terapija={terapija} key={terapija.id}/>
+        ))
+          }
+
+      </div>
+      <Outlet/>
+
+      </div> 
+      )*/
+
+      if(terapijaData == null) {
+        return (
+          <div>
+            <TerapijaKreiranje/>
+          </div>
+        )
+      }
+      else {
+        return (
+          <div>
+            {terapijaData.map((terapija)=>(
+          <Terapija terapija={terapija} key={terapija.id}/>
         ))}
-        </div> 
-      )
+          </div>
+        )
+      }
 }
 export default TerapijaPacijenta

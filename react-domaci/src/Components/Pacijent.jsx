@@ -3,6 +3,8 @@ import './forme.css';
 import { useState } from 'react';
 import axios from 'axios'; 
 import {useNavigate} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Pacijent = ({pacijent}) => {
@@ -13,15 +15,11 @@ const Pacijent = ({pacijent}) => {
     roditelj: pacijent.roditelj,
     godine:pacijent.godine, 
     email:pacijent.email,
-    
-    //id_doktor:""
   });
 
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
-  function handlePrikaz() {
-    console.log("PRIKAZ");
-  }
+  
 
   function handleInput(e) {
     let newPacijentData = pacijentData;
@@ -37,7 +35,7 @@ const Pacijent = ({pacijent}) => {
         pacijentData)
         .then((res)=> {
             console.log(res.data);  
-             
+            alert("Pacijent izmenjen!");
         })
         .catch((e)=> {
             console.log(e); 
@@ -60,12 +58,65 @@ const Pacijent = ({pacijent}) => {
 
   function handlePregled() {
     window.sessionStorage.setItem("pacijent_id", pacijent.id);
-    navigate("/listapregledadoktor"); 
+    window.sessionStorage.setItem("pacijent_name", pacijent.name);
+    //navigate("/listapregledadoktor"); 
+    
+  }
+
+  //MODAL - POPUP 
+  const[modal, setModal] = useState(false);
+
+  function toggleModal() {
+    setModal(!modal);
+  }
+
+  const[modal2, setModal2] = useState(false);
+
+  function toggleModal2() {
+    setModal2(!modal2);
+  }
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  }else {
+    document.body.classList.remove('active-modal')
+  }
+
+  if(modal2) {
+    document.body.classList.add('active-modal')
+  }else {
+    document.body.classList.remove('active-modal')
   }
 
   return (
     <div>
-    <div className='pacijenti'>
+
+    <div className="pacijenti">
+        <div className='polje'>
+          Pacijent: {pacijent.name}
+        </div>
+        <div className="polje">
+          GODINE: {pacijent.godine}
+        </div>
+        <button onClick={toggleModal2}>
+          PRIKAZI DETALJE PACIJENTA
+        </button>
+        <button onClick={toggleModal}>
+          IZMENI PACIJENTA
+        </button>
+        <button onClick={handleBrisanje}>
+          OBRISI PACIJENTA
+        </button>
+        {/*<button onClick={handlePregled}>
+          ZAKAZI PREGLED
+        </button>*/}
+        <Link to='/doktor/listapregleda' onClick={handlePregled}>PREGLEDI</Link>
+    </div>
+
+    {modal2 && (
+    <div className='modal'>
+    <div className='overlay' onClick={toggleModal2}></div>
+    <div className='content'>
         <div className='ime'>
           Pacijent: {pacijent.name}
         </div>
@@ -81,26 +132,22 @@ const Pacijent = ({pacijent}) => {
         <div className="email">
           EMAIL: {pacijent.email}
         </div>
-        
         <div className="doktor">
           DOKTOR: {pacijent.id_doktor}
         </div>
-        <button onClick={handlePrikaz}>
-          PRIKAZI DETALJE PACIJENTA
-        </button>
-        <button onClick={handleIzmena}>
-          IZMENI PACIJENTA
-        </button>
-        <button onClick={handleBrisanje}>
-          OBRISI PACIJENTA
-        </button>
-        <button onClick={handlePregled}>
-          ZAKAZI PREGLED
-        </button>
     </div>
+    </div>
+    )} 
+    
 
-    <div className='modal1'>
-    <div className='id'>
+        {modal && (
+    <div className='modal'>
+    <div className='overlay' onClick={toggleModal}></div>
+    <div className='content'>
+
+
+      <button onClick={toggleModal}>Zatvori</button> 
+      <div className='id'>
       <input type="hidden" onInput={handleInput} name="id" value={pacijentData.id}/>
       </div>
       <div className='ime'>
@@ -127,8 +174,11 @@ const Pacijent = ({pacijent}) => {
         IZMENI PACIJENTA
       </button>
       
-
     </div>
+    </div>
+    )}
+
+<Outlet/>
 
 </div>
   )

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './navbar.css'
 import { Link } from "react-router-dom";
-
+import '../forme.css';
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
 import logo from '../..//assets/logo34.png'
@@ -33,6 +33,9 @@ const Navbar = ({token, token2}) => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token",null);
+
+      window.localStorage.setItem("auth_token_local",null);
+
       window.sessionStorage.setItem("user_id",null);
 
       //window.location.reload(false);
@@ -75,7 +78,9 @@ const Navbar = ({token, token2}) => {
         </div>
 
         <div className={active}>
+        
           <ul className="navLists flex">
+            
             <li className="navItem">
               <Link to="/" className="navLink">Početna</Link>
             </li>
@@ -120,13 +125,16 @@ const Navbar = ({token, token2}) => {
               <Link to="/listapacijenata" className="navLink" >LISTA PACIJENATA </Link>
             </li>
             
-
             <li className="navItem">
               <a href="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </a>
             </li>
+
+            
+
             </div>
               
-            : 
+             
+            :
             
             <div>
               <li className="navItem">
@@ -142,19 +150,104 @@ const Navbar = ({token, token2}) => {
 
             <button className='btn'>
               <a href="#">Zakaži pregled</a>
-            </button>
+          </button>
+
+
+          {/*token == null ?
+
+          <div className='meni1'>
+            <li className="navItem">
+              <Link to="/" className="navLink">Početna</Link>
+            </li>
+            <li className="navItem">
+            <Link to="/blog" className="navLink">Blog</Link>
+            </li>
+            <li className="navItem">
+            <Link to="/about" className="navLink">O meni</Link>
+            </li>
+            <li className="navItem">
+              <a href="#" className="navLink">Kontakt</a>
+            </li>
+            <li className="navItem">
+              <Link to="/register" className="navLink">DOKTOR REGISTER </Link>
+            </li> 
+
+            <li className="navItem">
+              <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
+            </li>
+
+            <li className="navItem">
+              <Link to="/loginpacijent" className="navLink">PACIJENT LOGIN </Link>
+            </li>
+          </div>
+
+          :
+
+            token2 == null ?
+
+            <div className='meni1'>
+              <li className="navItem">
+                <Link to="/" className="navLink">Početna</Link>
+              </li>
+              <li className="navItem">
+              <Link to="/blog" className="navLink">Blog</Link>
+              </li>
+              <li className="navItem">
+              <Link to="/about" className="navLink">O meni</Link>
+              </li>
+              <li className="navItem">
+                <a href="#" className="navLink">Kontakt</a>
+              </li>
+              <li className="navItem">
+                <Link to="/register" className="navLink">DOKTOR REGISTER </Link>
+              </li> 
+
+              <li className="navItem">
+                <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
+              </li>
+
+              <li className="navItem">
+                <Link to="/loginpacijent" className="navLink">PACIJENT LOGIN </Link>
+              </li>
+            </div>
+
+          :
+
+          token != null ?
+
+          <li className="navItem">
+          <a href="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </a>
+        </li>
+
+        :
+
+        token2 != null ?
+
+        <div>
+        <li className="navItem">
+          <a href="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </a> 
+        </li>
+        </div>
+
+        :
+
+        <li className="navItem">
+                <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
+              </li>
+
+        */} 
 
           </ul>
 
           <div onClick={removeNavbar} className="closeNavbar">
             <AiFillCloseCircle className="icon"/>
-          </div>
+        </div>
 
         </div>
 
         <div onClick={showNav} className="toggleNavbar">
-          <TbGridDots className="icon"/>
-        </div>
+          <TbGridDots className="icon"/> 
+      </div>
 
       </header>
     </section>

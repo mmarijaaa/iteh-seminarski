@@ -20,7 +20,7 @@ import ListaPacijenata from './Components/ListaPacijenata'
 import Pregled from './Components/Pregled'
 import Terapija from './Components/Terapija'
 import ListaPregledaDoktor from './Components/ListaPregledaDoktor'
-import TerapijaPacijent from './Components/TerapijaPacijenta'
+import TerapijaPacijenta from './Components/TerapijaPacijenta'
 import TerapijaKreiranje from './Components/TerapijaKreiranje'
 
 
@@ -50,32 +50,39 @@ const App = () => {
 
         <Route path='/blog' element={<Blog/>}></Route>
 
+
         <Route path='/register' element={<RegisterDoktor/>}></Route> 
 
-        <Route path='/login' element={<LoginDoktor addToken={addToken} />}></Route> 
+        <Route path='/login' element={<LoginDoktor addToken={addToken} />}/>
 
-        <Route path='/registerpacijent' element={<RegisterPacijent addToken={addToken}/>}></Route> 
-        <Route path='/loginpacijent' element={<LoginPacijent addToken2={addToken2} />}></Route> 
+        <Route path='/doktor' element={<ProfilDoktora/>}>
 
-        <Route path='/profildoktora' element={<ProfilDoktora/>}>
+            <Route path='registerpacijent' element={<RegisterPacijent addToken={addToken}/>}/>
+            <Route path='listapacijenata' element={<ListaPacijenata />}/>
 
-       
+            <Route path='listapregleda' element={<ListaPregledaDoktor />}/>
+            <Route path='pregled' element={<Pregled addToken={addToken} />}/>
+
+            <Route path='terapija' element={<Terapija addToken={addToken} />}></Route>
+
+            <Route path='terapijapacijenta' element={<TerapijaPacijenta />}></Route>
+
+            <Route path='terapijakreiranje' element={<TerapijaKreiranje />}></Route>
         
         </Route>
-        
-        <Route path='/listapacijenata' element={<ListaPacijenata />}/>
+
+
+        <Route path='/loginpacijent' element={<LoginPacijent addToken2={addToken2} />}/> 
         
         <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
 
-        <Route path='/pregled' element={<Pregled addToken={addToken} />}></Route>
 
-        <Route path='/listapregledadoktor' element={<ListaPregledaDoktor />}></Route>
 
-        <Route path='/terapija' element={<Terapija addToken={addToken} />}></Route>
+        {/*<Route path='/terapija' element={<Terapija addToken={addToken} />}></Route>
 
-        <Route path='/terapijapacijent' element={<TerapijaPacijent  />}></Route>
+        <Route path='/terapijapacijenta' element={<TerapijaPacijenta />}></Route>
 
-        <Route path='/terapijakreiranje' element={<TerapijaKreiranje />}></Route>
+      <Route path='/terapijakreiranje' element={<TerapijaKreiranje />}></Route>*/}
 
         
       </Routes> 

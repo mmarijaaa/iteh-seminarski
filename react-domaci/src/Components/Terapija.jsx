@@ -2,6 +2,8 @@ import React from 'react'
 import './forme.css';
 import { useState } from 'react';
 import axios from 'axios'; 
+import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Terapija = ({terapija, token}) => {
 
@@ -53,7 +55,7 @@ const Terapija = ({terapija, token}) => {
      var config = {
         method: 'put',
         
-        url: 'http://127.0.0.1:8000/api/izmenaterapija'+terapija.id,
+        url: 'http://127.0.0.1:8000/api/izmenaterapija/'+terapija.id,
         headers: { 
           'Content-Type': 'application/json', 
           'Authorization': 'Bearer ' + window.sessionStorage.getItem("auth_token")
@@ -71,11 +73,27 @@ const Terapija = ({terapija, token}) => {
       });
   }
 
+    //MODAL - POPUP 
+  const[modal, setModal] = useState(false);
+
+  function toggleModal() {
+    setModal(!modal);
+  }
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  }else {
+    document.body.classList.remove('active-modal')
+  }
+
+
     return (
 
         <div className="formapregled">
 
-        <div className="pregled"><h1>TERAPIJA</h1></div>
+        <Link to='/doktor/listapregleda'> Lista pregleda </Link> 
+
+        <h1>TERAPIJA</h1>
 
         <div className="datumpregleda" >
             NAZIV: {terapija.lekovi}
@@ -89,8 +107,14 @@ const Terapija = ({terapija, token}) => {
 
       
         <div className='izmenaterapija'>
-        <div className="pregled"><h1>IZMENA TERAPIJA</h1></div>
+        <button onClick={toggleModal}>
+          IZMENI PREGLED
+        </button>
 
+        {modal && (
+    <div className='modal'>
+    <div className='overlay' onClick={toggleModal}></div>
+    <div className='content'>
             <div className="datumpregleda" >
                 <input type="text" name="lekovi" onInput={handleInput} defaultValue={terapijaData.lekovi}/>
             </div>
@@ -106,6 +130,12 @@ const Terapija = ({terapija, token}) => {
             </button>
 
         </div>
+        </div>
+        )}
+
+        </div>
+
+        <Outlet/>
 
         </div>
     )
