@@ -1,9 +1,21 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
 .formalogin {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 150px;
+    padding: 100px;
+}
+
+.profildoktora {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
 }
 
 .forma {
@@ -18,18 +30,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 150px;
+    padding: 50px;
 }
 
 .pacijenti {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 20px;
     border: 2px black solid;
 }
 
+.pacijenti button {
+    margin: 10px;
+}
+.pacijenti .polje {
+    margin: 15px;
+}
 .modal1 {
     display: flex;
     flex-direction: row;
@@ -39,21 +57,25 @@
     border: 2px black solid;
 }
 
-.naslovpregled {
-    padding-top: 200px;
-}
 
 .formapregled {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 70px;
+    padding-top: 50px;
 }
 
 .pregled {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px black solid;
+}
+.pregled .polje {
+    margin: 10px;
 }
 
 .listapregleda {
@@ -61,8 +83,45 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
 }
 
 .h1{
     padding: 150px;
+}
+
+.meni1 {
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+}
+
+.modal .content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1.4;
+    background:#f1f1f1;
+    padding: 30px 60px;
+    max-width: 800px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;    
+}
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+.overlay {
+    background: rgba(49, 49, 49, 0.6);
+}
+
+h2 {
+    padding-bottom: 20px;
 }

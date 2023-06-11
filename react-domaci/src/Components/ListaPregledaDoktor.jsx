@@ -69,24 +69,49 @@ useEffect(()=>{
 }, [pregledi]
 );
 
-  
+const[modal2, setModal2] = useState(false);
+
+function toggleModal2() {
+  setModal2(!modal2);
+}
+
+if(modal2) {
+  document.body.classList.add('active-modal')
+}else {
+  document.body.classList.remove('active-modal')
+}
+
+let pacijent_name = window.sessionStorage.getItem("pacijent_name"); 
 
   return (
     <div className="formapregled">
 
-      <div className="naslovpregled"><h1>ZAKAZI PREGLED</h1></div>
+    
+    <h2> Pacijent: {pacijent_name} </h2>
+    
+        <button onClick={toggleModal2}>
+          NOVI PREGLED
+        </button>
+    {modal2 && (
+    <div className='modal'>
+    <div className='overlay' onClick={toggleModal2}></div>
+    <div className='content'>
+        
 
-      <div className="datumpregleda" >
+        <div className="datumpregleda" >
         <input type="datetime-local" name="datum_pregleda" onInput={handleInput}/>
-      </div>
-      <div className="opispregleda">
+        </div>
+
+        <div className="opispregleda">
         <input type="text" name="opis" onInput={handleInput}/>
+        </div>
+
+        <button onClick={handleZakaziPregled}>
+        SACUVAJ
+        </button>
       </div>
-
-      <button onClick={handleZakaziPregled}>
-        ZAKAZI
-      </button>
-
+      </div>
+      )}
       
 
 

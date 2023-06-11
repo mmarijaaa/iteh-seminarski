@@ -2,7 +2,8 @@ import React from 'react'
 import './forme.css';
 import { useState } from 'react';
 import axios from 'axios'; 
-import {useNavigate} from 'react-router-dom';
+import {Outlet, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Pregled = ({pregled, token}) => {
@@ -16,7 +17,7 @@ const Pregled = ({pregled, token}) => {
 
     function handleTerapija() {
       window.sessionStorage.setItem("pregled_id", pregled.id);
-      navigate('/terapijapacijenta');
+      //navigate('/terapijapacijenta');
     }
 
     function handleInput(e) {
@@ -46,20 +47,43 @@ const Pregled = ({pregled, token}) => {
       });
     }
 
-    return (
+    //MODAL - POPUP 
+  const[modal, setModal] = useState(false);
 
+  function toggleModal() {
+    setModal(!modal);
+  }
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  }else {
+    document.body.classList.remove('active-modal')
+  }
+
+    return (
+      <div>
       <div className="pregled">
-        <div className="datum">
+
+        <div className="polje">
           {pregled.datum_pregleda}
         </div>
-        <div className="opis">
+        <div className="polje">
           {pregled.opis}
         </div>
-        <button onClick={handleTerapija}>
+        {/*<button onClick={handleTerapija}>
           TERAPIJA
+        </button>*/}
+        <Link to='/doktor/terapijapacijenta' onClick={handleTerapija} className='polje'>TERAPIJA</Link>
+        <button onClick={toggleModal} className='polje'>
+          IZMENI PREGLED
         </button>
 
-        <div className="pregled">
+
+        {modal && (
+        <div className='modal'>
+        <div className='overlay' onClick={toggleModal}></div>
+        <div className='content'>
+
         <div className="datum">
           <input type="text" name='datum_pregleda' onInput={handleInput} defaultValue={pregledData.datum_pregleda}/>
         </div>
@@ -70,7 +94,14 @@ const Pregled = ({pregled, token}) => {
         <button onClick={handleIzmenaPregled}>
           IZMENI PREGLED
         </button>
+
         </div>
+        </div>
+        )}
+
+
+        </div>
+      <Outlet/>
       </div>
         
     )
