@@ -117,13 +117,13 @@ const Navbar = ({token, token2}) => {
             token != null && token2 == null ? 
 
             <div>
-            <li className="navItem">
+            {/*<li className="navItem">
               <Link to="/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
             </li>
 
             <li className="navItem">
               <Link to="/listapacijenata" className="navLink" >LISTA PACIJENATA </Link>
-            </li>
+            </li>*/}
             
             <li className="navItem">
               <a href="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </a>

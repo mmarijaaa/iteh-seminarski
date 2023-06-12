@@ -36,10 +36,13 @@ const Pacijent = ({pacijent}) => {
         .then((res)=> {
             console.log(res.data);  
             alert("Pacijent izmenjen!");
+            window.location.reload(false);
         })
         .catch((e)=> {
             console.log(e); 
         });
+
+        
   }
 
   function handleBrisanje(e) {
@@ -49,7 +52,8 @@ const Pacijent = ({pacijent}) => {
         .delete("http://127.0.0.1:8000/api/brisanjepacijenta/"+idpac)
         .then((res)=> {
             console.log("Obrisano");  
-          
+          alert("Pacijent obrisan");
+          window.location.reload(false);
         })
         .catch((e)=> {
             console.log(e); 

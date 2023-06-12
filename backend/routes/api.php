@@ -44,10 +44,16 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
 
     /////
     Route::get('/terapija/{id}/{id_pac}/{id_preg}', [TerapijaController::class, 'index']);
+
+    Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
+
+    Route::delete('/brisanjepregleda/{id}', [PregledController::class, 'destroy']);
+
+    Route::delete('/brisanjeterapije/{id}', [TerapijaController::class, 'destroy']);
 });
 
-    //lista pacijenata
-    Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
+   
+    
     
     Route::get('/pregledi/{id}/{parameter}', [PregledController::class, 'index']);
     Route::put('/izmenapacijent/{id}', [PacijentController::class, 'update']);

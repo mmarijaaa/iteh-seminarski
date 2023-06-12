@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import './forme.css';
 import Pacijent from './Pacijent';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import { Outlet } from 'react-router-dom';
 
 const ListaPacijenata = () => {
     const [pacijents, setPacijents] = useState();
+
     let iddok = window.sessionStorage.getItem("user_id");
     useEffect(()=>{
       if(pacijents == null) {
@@ -32,7 +33,6 @@ const ListaPacijenata = () => {
         .then((response) => {
           console.log(JSON.stringify(response.data));
           setPacijents(response.data.pacijenti);
-
         })
         .catch((error) => {
           console.log(error);

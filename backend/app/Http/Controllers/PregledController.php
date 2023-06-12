@@ -98,9 +98,15 @@ class PregledController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pregled $pregled)
+    public function destroy($id)
     {
-        //
+        $pregled=Pregled::find($id);
+
+        $pregled->delete();
+
+        return response()->json('Pregled uspesno obrisan');
+
+    
     }
 
    

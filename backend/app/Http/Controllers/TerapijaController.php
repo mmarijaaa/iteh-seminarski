@@ -102,8 +102,13 @@ class TerapijaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Terapija $terapija)
+    public function destroy($id)
     {
-        //
+        $terapija=Terapija::find($id);
+
+        $terapija->delete();
+
+        return response()->json('Terapija uspesno obrisana');
+
     }
 }
