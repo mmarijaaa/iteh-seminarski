@@ -21,7 +21,7 @@ const TerapijaPacijenta = () => {
 
         if(terapijaData == null) {
 
-          let id_doktor=window.sessionStorage.getItem("user_id");
+    let id_doktor=window.sessionStorage.getItem("user_id");
     let id_pacijent=window.sessionStorage.getItem("pacijent_id");
     let id_pregled=window.sessionStorage.getItem("pregled_id");
   
@@ -72,7 +72,7 @@ const TerapijaPacijenta = () => {
       if(terapijaData == null) {
         return (
           <div>
-            <TerapijaKreiranje/>
+            <h1>nesto</h1>
           </div>
         )
       }

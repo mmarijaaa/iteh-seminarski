@@ -40,11 +40,35 @@ const Pregled = ({pregled, token}) => {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        alert('Pregled je izmenjen')
+        alert('Pregled je izmenjen');
+        window.location.reload(false);
       })
       .catch((error) => {
         console.log(error);
       });
+    }
+
+    function handleBrisanje() {
+      let config = {
+        method: 'delete',
+        url: 'http://127.0.0.1:8000/api/brisanjepregleda/'+pregled.id,
+        headers: { 
+          'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+          
+        },
+        data : pregledData
+      };
+      
+      axios.request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        alert('Pregled je izbrisan!');
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      
     }
 
     //MODAL - POPUP 
@@ -76,6 +100,9 @@ const Pregled = ({pregled, token}) => {
         <Link to='/doktor/terapijapacijenta' onClick={handleTerapija} className='polje'>TERAPIJA</Link>
         <button onClick={toggleModal} className='polje'>
           IZMENI PREGLED
+        </button>
+        <button onClick={handleBrisanje}>
+          OBRISI PREGLED 
         </button>
 
 

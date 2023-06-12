@@ -2,7 +2,7 @@ import React from 'react'
 import './forme.css';
 import { useState } from 'react';
 import axios from 'axios'; 
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Terapija = ({terapija, token}) => {
@@ -21,6 +21,8 @@ const Terapija = ({terapija, token}) => {
         newTerapijaData[e.target.name] = e.target.value;
         setTerapijaData(newTerapijaData);
     } 
+
+    let navigate = useNavigate();
 
     /*function handleSacuvajTerapiju(e) {
 
@@ -66,12 +68,35 @@ const Terapija = ({terapija, token}) => {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-
+        window.location.reload(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }
+
+  function handleBrisanje() {
+    let config = {
+      method: 'delete',
+      url: 'http://127.0.0.1:8000/api/brisanjeterapije/'+terapija.id,
+      headers: { 
+        'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+      },
+      data : terapijaData
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      alert('Terapija obrisana');
+      window.location.reload(false);
+      //navigate('/doktor/terapijakreiranje');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
 
     //MODAL - POPUP 
   const[modal, setModal] = useState(false);
@@ -108,7 +133,10 @@ const Terapija = ({terapija, token}) => {
       
         <div className='izmenaterapija'>
         <button onClick={toggleModal}>
-          IZMENI PREGLED
+          IZMENI TERAPIJU
+        </button>
+        <button onClick={handleBrisanje}>
+          OBRISI TERAPIJU
         </button>
 
         {modal && (
