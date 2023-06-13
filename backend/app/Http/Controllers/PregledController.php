@@ -24,6 +24,14 @@ class PregledController extends Controller
         return new PregledPacijentResource($pregledi); 
     }
 
+    public function index2($id_pacijent){
+        $pregledi = Pregled::get()->where('id_pacijent',$id_pacijent);
+        if(is_null($pregledi))
+            return response()->json('Data not found', 404);
+        //return response()->json($pregledi);
+        return new PregledPacijentResource($pregledi); 
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -81,7 +81,9 @@ Route::group(['middleware'=> ['auth:sanctum','abilities:pacijent']], function() 
         return auth()->user();
     });
 
+    Route::get('/pregled/{id_pacijent}', [PregledController::class, 'index2']);
     Route::post('/logoutpacijent', [PacijentController::class, 'logoutpacijent']);
+    Route::get('/terapija/{id_preg}', [TerapijaController::class, 'index2']);
  
 });
 

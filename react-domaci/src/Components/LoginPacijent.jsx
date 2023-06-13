@@ -29,7 +29,7 @@ const LoginPacijent = ({addToken2}) => {
             console.log(res.data);  
             if(res.data.success === true) {
                 window.sessionStorage.setItem("auth_token2", res.data.access_token);
-                 
+                window.sessionStorage.setItem("pacijent_user_id", res.data.pacijent_user_id);
                 addToken2(res.data.access_token);
                 navigate("/profilpacijenta");
             }
