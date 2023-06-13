@@ -35,8 +35,8 @@ class PacijentController extends Controller
             'jmbg'=>$request->jmbg,
             'roditelj'=>$request->roditelj,
             'godine'=>$request->godine,
-            //'password'=>Hash::make($request->password),
-            'password'=>$request->password,
+            'password'=>Hash::make($request->password),
+            //'password'=>$request->password,
             'id_doktor'=>Auth::user()->id
             //@if(Auth::id() == $offerz -> id_doktor)
 
@@ -75,7 +75,8 @@ class PacijentController extends Controller
         
         $user=Pacijent::where('email', $request['email'])->firstOrFail();
         $token=$user->createToken('auth_token')->plainTextToken;
-        return response()->json(['success'=>true, 'access_token'=>$token, 'token_type'=>'Bearer']);
+        $user_id = $user->id;
+        return response()->json(['success'=>true, 'access_token'=>$token, 'token_type'=>'Bearer', 'pacijent_user_id'=>$user_id]);
     }
 
     public function logoutpacijent()

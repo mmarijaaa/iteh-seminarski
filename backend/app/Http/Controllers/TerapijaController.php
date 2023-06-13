@@ -25,6 +25,14 @@ class TerapijaController extends Controller
         return new TerapijaResource($terapije); 
     }
 
+    public function index2($id_pregled){
+        $terapije = Terapija::get()->where('id_pregled', $id_pregled);
+        if(is_null($terapije))
+            return response()->json('Data not found', 404);
+        //return response()->json($pregledi);
+        return new TerapijaResource($terapije); 
+    }
+
     /**
      * Show the form for creating a new resource.
      */
