@@ -60,8 +60,8 @@ class PregledController extends Controller
             'opis'=>$request->opis,
         ]);
 
-        return response()->json(['Pregled uspesno kreiran.', $pregled]); 
-
+        //return response()->json(['Pregled uspesno kreiran.', $pregled, $pregled->id]);  
+        return new PregledPacijentResource($pregled);
     }
 
     /**

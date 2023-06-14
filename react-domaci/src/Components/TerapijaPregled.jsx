@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 import './forme.css';
 
 
-const TerapijaPregled = (terapija) => {
-    
-
+const TerapijaPregled = ({terapija}) => {
 
   return (
     <div>TerapijaPregled

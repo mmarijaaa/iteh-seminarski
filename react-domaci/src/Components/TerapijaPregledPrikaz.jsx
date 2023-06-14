@@ -1,24 +1,26 @@
 import React from 'react'
 import './forme.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Pregled from './Pregled';
+import { useState, useEffect} from 'react';
+import axios from 'axios'; 
+import TerapijaKreiranje from './TerapijaKreiranje';
+import Terapija from './Terapija';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import TerapijaPregled from './TerapijaPregled';
 
-const PregledPacijent = ({pregled}) => {
-
-  const[terapijaData, setTerapijaData]=useState();
+const TerapijaPregledPrikaz = ({terapijapregled}) => {
+    
+        const[terapijaData, setTerapijaData]=useState();
         useEffect(()=>{
             if(terapijaData == null) {
 
             let config = {
             method: 'get',
             
-            url: 'http://127.0.0.1:8000/api/terapija/' + pregled.id,
+            url: 'http://127.0.0.1:8000/api/terapija/1',
             headers: { 
               'Authorization': 'Bearer '+ window.sessionStorage.getItem("auth_token2"), 
+              
             },
             data : terapijaData
           };
@@ -35,26 +37,7 @@ const PregledPacijent = ({pregled}) => {
           }}, [terapijaData]
           );
           
-  
-  return (
-    <div>
-        PregledPacijent
-
-        <div className="pregled">
-            <div className="polje">
-            {pregled.id}
-            </div>
-            <div className="polje">
-            {pregled.datum_pregleda}
-            </div>
-            <div className="polje">
-            {pregled.opis}
-            </div>
-        </div>
-
-        
-        <h1>TERAPIJA</h1>
-
+    return (
         <div>
             {terapijaData != null ?
             
@@ -62,13 +45,10 @@ const PregledPacijent = ({pregled}) => {
             terapijaData.map((terapija)=>(
             <TerapijaPregled terapija={terapija} key={terapija.id}/> ))
             :
-            <h1>nemaaa</h1>
+            <></> 
             }
             
           </div>
-    
-
-    </div>
-  )
+    )
 }
-export default PregledPacijent
+export default TerapijaPregledPrikaz

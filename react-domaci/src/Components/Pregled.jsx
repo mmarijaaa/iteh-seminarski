@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Pregled = ({pregled, token}) => {
 
+  //PODACI O PREGLEDU
   const[pregledData, setPregledData]=useState({
     datum_pregleda:pregled.datum_pregleda,
     opis: pregled.opis
@@ -26,6 +27,7 @@ const Pregled = ({pregled, token}) => {
       setPregledData(newPregledData);
   } 
   
+  //IZMENA PREGLEDA
     function handleIzmenaPregled(){
       var config = {
         method: 'put',
@@ -48,6 +50,7 @@ const Pregled = ({pregled, token}) => {
       });
     }
 
+    //BRISANJE PREGLEDA
     function handleBrisanje() {
       let config = {
         method: 'delete',
@@ -71,7 +74,7 @@ const Pregled = ({pregled, token}) => {
       
     }
 
-    //MODAL - POPUP 
+  //MODAL - POPUP 
   const[modal, setModal] = useState(false);
 
   function toggleModal() {
@@ -98,6 +101,7 @@ const Pregled = ({pregled, token}) => {
           TERAPIJA
         </button>*/}
         <Link to='/doktor/terapijapacijenta' onClick={handleTerapija} className='polje'>TERAPIJA</Link>
+        
         <button onClick={toggleModal} className='polje'>
           IZMENI PREGLED
         </button>
