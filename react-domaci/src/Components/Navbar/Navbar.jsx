@@ -7,6 +7,7 @@ import {TbGridDots} from 'react-icons/tb'
 import logo from '../..//assets/logo34.png'
 import axios from "axios";
 import { Outlet } from 'react-router-dom';
+import { BsNodePlusFill } from 'react-icons/bs';
 
 const Navbar = ({token, token2}) => {
 
@@ -33,12 +34,10 @@ const Navbar = ({token, token2}) => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token",null);
-
-      window.localStorage.setItem("auth_token_local",null);
-
+      window.sessionStorage.setItem("auth_token2",null);
       window.sessionStorage.setItem("user_id",null);
 
-      //window.location.reload(false);
+      window.location.reload(false);
 
     })
     .catch((error) => {
@@ -60,6 +59,10 @@ const Navbar = ({token, token2}) => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token2",null);
+      window.sessionStorage.setItem("auth_token",null);
+
+      window.location.reload(false);
+
     })
     .catch((error) => {
       console.log(error);
@@ -80,7 +83,8 @@ const Navbar = ({token, token2}) => {
         <div className={active}>
         
           <ul className="navLists flex">
-            
+
+
             <li className="navItem">
               <Link to="/" className="navLink">Početna</Link>
             </li>
@@ -95,10 +99,10 @@ const Navbar = ({token, token2}) => {
             </li>
 
             
-
             {token == null && token2 == null ?  
             
-            <div>
+            
+              <div>
             <li className="navItem">
               <Link to="/register" className="navLink">DOKTOR REGISTER </Link>
             </li> 
@@ -111,41 +115,30 @@ const Navbar = ({token, token2}) => {
               <Link to="/loginpacijent" className="navLink">PACIJENT LOGIN </Link>
             </li>
             </div>
+            
 
             : 
 
-            token != null && token2 == null ? 
-
-            <div>
-            {/*<li className="navItem">
-              <Link to="/registerpacijent" className="navLink">PACIJENT KREIRANJE </Link>
-            </li>
-
-            <li className="navItem">
-              <Link to="/listapacijenata" className="navLink" >LISTA PACIJENATA </Link>
-            </li>*/}
+            window.sessionStorage.getItem("auth_token") != null 
+            
+             ? 
             
             <li className="navItem">
-              <a href="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </a>
+              <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
             </li>
-
             
-
-            </div>
-              
-             
             :
-            
-            <div>
+
+            window.sessionStorage.getItem("auth_token2") != null ?
+
               <li className="navItem">
-              <a href="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </a> 
+              <Link to ="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </Link> 
             </li>
-            </div>
-
             
+            :
 
-
-
+            <></>
+         
             }
 
             <button className='btn'>

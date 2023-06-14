@@ -25,13 +25,13 @@ const LoginPacijent = ({addToken2}) => {
         axios
         .post("http://127.0.0.1:8000/api/loginpacijent",   
         pacijentData)
-        .then((res)=> {
-            console.log(res.data);  
-            if(res.data.success === true) {
-                window.sessionStorage.setItem("auth_token2", res.data.access_token);
-                window.sessionStorage.setItem("pacijent_user_id", res.data.pacijent_user_id);
-                addToken2(res.data.access_token);
-                navigate("/profilpacijenta");
+        .then((res2)=> {
+            console.log(res2.data);  
+            if(res2.data.success === true) {
+                window.sessionStorage.setItem("auth_token2", res2.data.access_token);
+                window.sessionStorage.setItem("pacijent_user_id", res2.data.pacijent_user_id);
+                addToken2(res2.data.access_token);
+                navigate("/pacijent");
             }
         })
         .catch((e)=> {

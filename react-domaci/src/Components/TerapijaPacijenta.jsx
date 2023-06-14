@@ -11,19 +11,16 @@ const TerapijaPacijenta = () => {
 
     const[terapijaData, setTerapijaData]=useState();
 
-    //let id_doktor=window.sessionStorage.getItem("user_id");
-    //let id_pacijent=window.sessionStorage.getItem("pacijent_id");
-    //let id_pregled=window.sessionStorage.getItem("pregled_id");
 
-    let navigate = useNavigate();
+    //let navigate = useNavigate();
 
     useEffect(()=>{
 
         if(terapijaData == null) {
 
-    let id_doktor=window.sessionStorage.getItem("user_id");
-    let id_pacijent=window.sessionStorage.getItem("pacijent_id");
-    let id_pregled=window.sessionStorage.getItem("pregled_id");
+          let id_doktor=window.sessionStorage.getItem("user_id");
+          let id_pacijent=window.sessionStorage.getItem("pacijent_id");
+          let id_pregled=window.sessionStorage.getItem("pregled_id");
   
             let config = {
                 method: 'get',
@@ -45,45 +42,27 @@ const TerapijaPacijenta = () => {
                 console.log(error);
               });
         }
-  
+        
       }, [terapijaData]
   
       );
 
-      /*return (
-        <div>
-        <div className="listapacijenata">
+      
+      
+        return (
+          <div className="listapacijenata">
         
-        {terapijaData == null ? 
+        {terapijaData!=null ? 
           
-          <h1>ne znam</h1>
+          terapijaData.map((terapija)=>(
+            <Terapija terapija={terapija} key={terapija.id}/>
+          ))
         : 
-        terapijaData.map((terapija)=>(
-          <Terapija terapija={terapija} key={terapija.id}/>
-        ))
+            <></>
           }
 
       </div>
-      <Outlet/>
-
-      </div> 
-      )*/
-
-      if(terapijaData == null) {
-        return (
-          <div>
-            <h1>nesto</h1>
-          </div>
         )
-      }
-      else {
-        return (
-          <div>
-            {terapijaData.map((terapija)=>(
-          <Terapija terapija={terapija} key={terapija.id}/>
-        ))}
-          </div>
-        )
-      }
+      
 }
 export default TerapijaPacijenta

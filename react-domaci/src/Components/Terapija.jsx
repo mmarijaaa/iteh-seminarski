@@ -121,13 +121,16 @@ const Terapija = ({terapija, token}) => {
         <h1>TERAPIJA</h1>
 
         <div className="datumpregleda" >
-            NAZIV: {terapija.lekovi}
+            {/*NAZIV: {terapija.lekovi}*/}
+            LEKOVI: <input type="text" defaultValue={terapija.lekovi}/>
         </div>
         <div className="datumpregleda" >
-            NACIN PRIMENE: {terapija.nacin_primene}
+            {/*NACIN PRIMENE: {terapija.nacin_primene}*/}
+            NACIN PRIMENE: <input type="text" defaultValue={terapija.nacin_primene}/>
         </div>
         <div className="datumpregleda" >
-            KOMENTAR: {terapija.komentar}
+            {/*KOMENTAR: {terapija.komentar}*/}
+            KOMENTAR: <input type="text" defaultValue={terapija.komentar}/>
         </div>
 
       
@@ -135,9 +138,9 @@ const Terapija = ({terapija, token}) => {
         <button onClick={toggleModal}>
           IZMENI TERAPIJU
         </button>
-        <button onClick={handleBrisanje}>
+        {/*<button onClick={handleBrisanje}>
           OBRISI TERAPIJU
-        </button>
+        </button>*/}
 
         {modal && (
     <div className='modal'>

@@ -22,6 +22,7 @@ import Terapija from './Components/Terapija'
 import ListaPregledaDoktor from './Components/ListaPregledaDoktor'
 import TerapijaPacijenta from './Components/TerapijaPacijenta'
 import TerapijaKreiranje from './Components/TerapijaKreiranje'
+import ListaPregledaPacijent from './Components/ListaPregledaPacijent'
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
     setToken(auth_token);
   }
 
+ 
   const [token2, setToken2] = useState();
   function addToken2(auth_token2) {
     setToken2(auth_token2);
@@ -40,7 +42,7 @@ const App = () => {
   return (
     <BrowserRouter>
       
-      <Navbar token={token} token2={token2}/>
+    <Navbar token={token} token2={token2}/>
       
       <Routes>
         
@@ -74,7 +76,11 @@ const App = () => {
 
         <Route path='/loginpacijent' element={<LoginPacijent addToken2={addToken2} />}/> 
         
-        <Route path='/profilpacijenta' element={<ProfilPacijenta/>}></Route>
+        <Route path='/pacijent' element={<ProfilPacijenta/>}>
+          
+            <Route path='listapregleda' element={<ListaPregledaPacijent/>}/>
+          
+        </Route> 
 
 
 
