@@ -29,8 +29,10 @@ const LoginDoktor = ({addToken}) => {
             console.log(res.data);  
             if(res.data.success === true) {
                 window.sessionStorage.setItem("auth_token", res.data.access_token);
-
+                window.localStorage.setItem("auth_token_local", res.data.access_token);
+                //window.localStorage.setItem("refresh", res.data.access_token);
                 window.sessionStorage.setItem("user_id", res.data.user_id);
+                window.sessionStorage.setItem("isLogged", res.data.success);
                 addToken(res.data.access_token);
                 navigate("/doktor"); 
             }

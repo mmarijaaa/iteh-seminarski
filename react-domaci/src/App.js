@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './app.css'
 import Footer from './Components/Footer/Footer'
 import Home from './Components/Home/Home'
@@ -23,6 +23,9 @@ import ListaPregledaDoktor from './Components/ListaPregledaDoktor'
 import TerapijaPacijenta from './Components/TerapijaPacijenta'
 import TerapijaKreiranje from './Components/TerapijaKreiranje'
 import ListaPregledaPacijent from './Components/ListaPregledaPacijent'
+import NavbarDoktor from './Components/Navbar/NavbarDoktor'
+import NavbarPacijent from './Components/Navbar/NavbarPacijent'
+
 
 
 const App = () => {
@@ -38,12 +41,26 @@ const App = () => {
     setToken2(auth_token2);
   }
 
+  /*useEffect(()=>{
+    const data = window.localStorage.getItem("auth_token_local");
+    /*if(data!==null){*/
+      //setToken(data);
+    /*}
+  })*/
+
+  
+
 
   return (
     <BrowserRouter>
       
-    <Navbar token={token} token2={token2}/>
-      
+{/*<Navbar token={token} token2={token2} addToken={addToken} addToken2={addToken2}/>*/}    
+      {token==null && token2==null ? 
+      <Navbar /> :
+      window.localStorage.getItem("isLogged") ? 
+      <NavbarDoktor />:
+      <NavbarPacijent/>
+      }
       <Routes>
         
         <Route path='/' element={<Pocetna/>}></Route>
@@ -51,12 +68,11 @@ const App = () => {
         <Route path='/about' element={<Ab/>}></Route>
 
         <Route path='/blog' element={<Blog/>}></Route>
-
-
         <Route path='/register' element={<RegisterDoktor/>}></Route> 
 
-        <Route path='/login' element={<LoginDoktor addToken={addToken} />}/>
+        <Route path='/login' element={<LoginDoktor addToken={addToken} />}/>      
 
+    
         <Route path='/doktor' element={<ProfilDoktora/>}>
 
             <Route path='registerpacijent' element={<RegisterPacijent addToken={addToken}/>}/>
@@ -82,6 +98,7 @@ const App = () => {
           
         </Route> 
 
+       
 
 
         {/*<Route path='/terapija' element={<Terapija addToken={addToken} />}></Route>
