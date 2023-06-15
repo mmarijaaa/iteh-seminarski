@@ -29,6 +29,8 @@ const LoginPacijent = ({addToken2}) => {
             console.log(res2.data);  
             if(res2.data.success === true) {
                 window.sessionStorage.setItem("auth_token2", res2.data.access_token);
+                localStorage.setItem("auth_token2_local", res2.data.access_token);
+
                 window.sessionStorage.setItem("pacijent_user_id", res2.data.pacijent_user_id);
                 addToken2(res2.data.access_token);
                 navigate("/pacijent");

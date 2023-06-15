@@ -9,7 +9,7 @@ import axios from "axios";
 import { Outlet } from 'react-router-dom';
 import { BsNodePlusFill } from 'react-icons/bs';
 
-const Navbar = ({token, token2}) => {
+const Navbar = () => {
 
   const [active, setActive]=useState('navBar');
   const showNav=()=>{
@@ -19,6 +19,8 @@ const Navbar = ({token, token2}) => {
   const removeNavbar=()=>{
     setActive('navBar')
   }
+
+  
   
   //logout DOKTOR
   function handleLogout() {
@@ -34,15 +36,17 @@ const Navbar = ({token, token2}) => {
     .then((response) => {
       console.log(JSON.stringify(response.data));
       window.sessionStorage.setItem("auth_token",null);
-      window.sessionStorage.setItem("auth_token2",null);
+      window.localStorage.setItem("auth_token_local",null);
       window.sessionStorage.setItem("user_id",null);
-
       window.location.reload(false);
+      
 
+      
     })
     .catch((error) => {
       console.log(error);
     });
+    
   }
 
   //logout PACIJENT
@@ -56,10 +60,11 @@ const Navbar = ({token, token2}) => {
     };
     
     axios.request(config)
-    .then((response) => {
-      console.log(JSON.stringify(response.data));
+    .then((response2) => {
+      console.log(JSON.stringify(response2.data));
       window.sessionStorage.setItem("auth_token2",null);
-      window.sessionStorage.setItem("auth_token",null);
+      
+      //window.sessionStorage.setItem("auth_token",null);
 
       window.location.reload(false);
 
@@ -69,7 +74,39 @@ const Navbar = ({token, token2}) => {
     });
   }
 
-  return (
+  /*if(token!= null){
+    return (<div className="">
+      <li className="navItem">
+              <Link to="/login" id='navLink' className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
+            </li></div>)
+  }
+  
+  else if(token2!= null){
+      return(
+      <div className="">
+      <li className="navItem">
+        <Link to ="/loginpacijent" id='navLink' className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </Link> 
+      </li></div>)
+    }*/
+  /*else{*/
+      return(
+      <div>
+      <li className="navItem">
+        <Link to="/register" id='navLink' className="navLink">DOKTOR REGISTER </Link>
+      </li> 
+
+      <li className="navItem">
+        <Link to="/login" id='navLink' className="navLink">DOKTOR LOGIN </Link>
+      </li>
+
+      <li className="navItem">
+        <Link to="/loginpacijent" id='navLink' className="navLink">PACIJENT LOGIN </Link>
+      </li>
+      </div>)
+    /*}*/
+  
+
+  /*return (
     <div>
     <section className="navBarSection">
       <header className="header flex">
@@ -118,10 +155,10 @@ const Navbar = ({token, token2}) => {
             
 
             : 
-
+            
             window.sessionStorage.getItem("auth_token") != null 
             
-             ? 
+            ? 
             
             <li className="navItem">
               <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
@@ -228,7 +265,7 @@ const Navbar = ({token, token2}) => {
                 <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
               </li>
 
-        */} 
+        } 
 
           </ul>
 
@@ -246,7 +283,7 @@ const Navbar = ({token, token2}) => {
     </section>
     <Outlet />
     </div>
-  )
+  )*/
 }
 
 export default Navbar
