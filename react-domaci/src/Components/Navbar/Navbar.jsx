@@ -9,7 +9,7 @@ import axios from "axios";
 import { Outlet } from 'react-router-dom';
 import { BsNodePlusFill } from 'react-icons/bs';
 
-const Navbar = () => {
+const Navbar = ({token, token2}) => {
 
   const [active, setActive]=useState('navBar');
   const showNav=()=>{
@@ -63,6 +63,7 @@ const Navbar = () => {
     .then((response2) => {
       console.log(JSON.stringify(response2.data));
       window.sessionStorage.setItem("auth_token2",null);
+      window.sessionStorage.setItem("pacijent_user_id",null);
       
       //window.sessionStorage.setItem("auth_token",null);
 
@@ -89,24 +90,11 @@ const Navbar = () => {
       </li></div>)
     }*/
   /*else{*/
-      return(
-      <div>
-      <li className="navItem">
-        <Link to="/register" id='navLink' className="navLink">DOKTOR REGISTER </Link>
-      </li> 
-
-      <li className="navItem">
-        <Link to="/login" id='navLink' className="navLink">DOKTOR LOGIN </Link>
-      </li>
-
-      <li className="navItem">
-        <Link to="/loginpacijent" id='navLink' className="navLink">PACIJENT LOGIN </Link>
-      </li>
-      </div>)
+      
     /*}*/
   
 
-  /*return (
+  return (
     <div>
     <section className="navBarSection">
       <header className="header flex">
@@ -156,7 +144,7 @@ const Navbar = () => {
 
             : 
             
-            window.sessionStorage.getItem("auth_token") != null 
+            token != null 
             
             ? 
             
@@ -166,7 +154,7 @@ const Navbar = () => {
             
             :
 
-            window.sessionStorage.getItem("auth_token2") != null ?
+            token2 != null ?
 
               <li className="navItem">
               <Link to ="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </Link> 
@@ -178,9 +166,7 @@ const Navbar = () => {
          
             }
 
-            <button className='btn'>
-              <a href="#">Zakaži pregled</a>
-          </button>
+            
 
 
           {/*token == null ?
@@ -265,7 +251,7 @@ const Navbar = () => {
                 <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
               </li>
 
-        } 
+          */} 
 
           </ul>
 
@@ -283,7 +269,7 @@ const Navbar = () => {
     </section>
     <Outlet />
     </div>
-  )*/
+  )
 }
 
 export default Navbar
