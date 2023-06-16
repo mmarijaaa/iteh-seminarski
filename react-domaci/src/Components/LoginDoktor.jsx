@@ -12,6 +12,10 @@ const LoginDoktor = ({addToken}) => {
         password:""
     });
 
+    const[errors, setErrors] = useState();
+
+    
+
     let navigate = useNavigate();
 
     function handleInput(e) {
@@ -38,16 +42,20 @@ const LoginDoktor = ({addToken}) => {
             }
         })
         .catch((e)=> {
-            console.log(e);
+            //console.log(e);
+            //console.log(e.response.error);
+            setErrors(e.response.data.error);
         });
     }
 
 
     return (
         <section>
+            
         <div className='formalogin'> 
             <form onSubmit={handleLogin}>
                 <div className="forma">
+                    
                     <input 
                         type="email"
                         id="doktoremail"
@@ -56,6 +64,7 @@ const LoginDoktor = ({addToken}) => {
                         onInput={handleInput}
                         name="email"
                     />
+                    
                     <input 
                         type="password"
                         id="doktorpassword"
@@ -64,7 +73,7 @@ const LoginDoktor = ({addToken}) => {
                         onInput={handleInput}
                         name="password"
                     />
-
+                    
                     <button
                         type="submit"
                         className="dugme"
@@ -81,6 +90,7 @@ const LoginDoktor = ({addToken}) => {
                     </p>
                 </div>
             </form>
+        	
         </div>
         </section>
 

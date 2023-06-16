@@ -54,13 +54,13 @@ const App = () => {
   return (
     <BrowserRouter>
       
-{/*<Navbar token={token} token2={token2} addToken={addToken} addToken2={addToken2}/>*/}    
-      {token==null && token2==null ? 
+<Navbar token={token} token2={token2} />   
+      {/*token==null && token2==null ? 
       <Navbar /> :
       window.localStorage.getItem("isLogged") ? 
       <NavbarDoktor />:
       <NavbarPacijent/>
-      }
+  */}
       <Routes>
         
         <Route path='/' element={<Pocetna/>}></Route>

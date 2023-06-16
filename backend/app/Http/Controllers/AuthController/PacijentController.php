@@ -18,11 +18,11 @@ class PacijentController extends Controller
     public function registerpacijent(Request $request)
     {
         $validator=Validator::make($request->all(), [
-            'name'=>'required|string|max:255',
+            'name'=>'required|string|max:100',
             'email'=>'required|string|max:100|email|unique:users',
-            'jmbg'=> 'required',
-            'roditelj'=>'required|string',
-            'godine'=>'required',
+            'jmbg'=> 'required|string|size:13',
+            'roditelj'=>'required|string|max:100',
+            'godine'=>'required|numeric|max:18',
             'password'=>'required|string|min:8'
         ]);
 
@@ -36,9 +36,7 @@ class PacijentController extends Controller
             'roditelj'=>$request->roditelj,
             'godine'=>$request->godine,
             'password'=>Hash::make($request->password),
-            //'password'=>$request->password,
             'id_doktor'=>Auth::user()->id
-            //@if(Auth::id() == $offerz -> id_doktor)
 
         ]);
 
@@ -70,6 +68,14 @@ class PacijentController extends Controller
 
     public function loginpacijent(Request $request) 
     {
+        $validator=Validator::make($request->all(), [
+            'email'=>'required|string|max:100|email',
+            'password'=>'required|string|min:8'
+        ]);
+
+        if($validator->fails())
+            return response()->json($validator->errors());
+
        if(!Auth::guard('pacijent')->attempt($request->only('email', 'password')))
             return response()->json(['success'=>false]);
         
@@ -88,11 +94,11 @@ class PacijentController extends Controller
     public function update(Request $request, $id) {
 
         $validator=Validator::make($request->all(),[
-            'name'=>'required|string|max:255',
-            'jmbg'=>'required|string|max:13',
-            'roditelj'=>'required|string|max:255',
-            'godine'=>'required',
-            'email'=>'required|string',
+            'name'=>'required|string|max:100',
+            'email'=>'required|string|max:100|email|unique:users',
+            'jmbg'=> 'required|string|size:13',
+            'roditelj'=>'required|string|max:100',
+            'godine'=>'required|numeric|max:18',
             //'password'=>'required|string|min:8'
         ]);
 
