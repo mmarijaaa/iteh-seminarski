@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import '../forme.css';
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {TbGridDots} from 'react-icons/tb'
-import logo from '../..//assets/logo34.png'
+import logo from '../..//assets/logo36.png'
 import axios from "axios";
 import { Outlet } from 'react-router-dom';
 import { BsNodePlusFill } from 'react-icons/bs';
@@ -97,48 +97,52 @@ const Navbar = ({token, token2}) => {
   return (
     <div>
     <section className="navBarSection">
-      <header className="header flex">
-
-        <div className="logoDiv">
-          <a href="#" className='logo flex'>
-            <a href="#"><img src={logo} alt="" /></a>
-          </a>
-        </div>
-
+      
         <div className={active}>
-        
-          <ul className="navLists flex">
-
-
+          
+          <div className='allElements'>
+          <div className="el1">
             <li className="navItem">
               <Link to="/" className="navLink">Početna</Link>
             </li>
+            
             <li className="navItem">
-            <Link to="/blog" className="navLink">Blog</Link>
-            </li>
-            <li className="navItem">
-            <Link to="/about" className="navLink">O meni</Link>
+            <Link to="/about" className="navLink">O nama</Link>
             </li>
             <li className="navItem">
               <a href="#" className="navLink">Kontakt</a>
             </li>
+          </div>
+
+          <div className="el2">
+          <div className="logoDiv">
+                 <a href="#" className='logo flex'>
+                 <a href="#"><img src={logo} alt="" /></a>
+                  </a>
+             </div>
+          </div>
+            
+            
+          
 
             
             {token == null && token2 == null ?  
             
             
-              <div>
+            <div className="el3">
+
             <li className="navItem">
-              <Link to="/register" className="navLink">DOKTOR REGISTER </Link>
+              <Link to="/register" className="navLink">Registracija</Link>
             </li> 
 
             <li className="navItem">
-              <Link to="/login" className="navLink">DOKTOR LOGIN </Link>
+              <Link to="/login" className="navLink">Doktor</Link>
             </li>
 
             <li className="navItem">
-              <Link to="/loginpacijent" className="navLink">PACIJENT LOGIN </Link>
+              <Link to="/loginpacijent" className="navLink">Pacijent</Link>
             </li>
+
             </div>
             
 
@@ -147,26 +151,27 @@ const Navbar = ({token, token2}) => {
             token != null 
             
             ? 
-            
+            <div className="el3">
             <li className="navItem">
               <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
             </li>
-            
+            </div>
             :
 
             token2 != null ?
 
+            <div className="el3">
               <li className="navItem">
               <Link to ="/loginpacijent" className="navLink" onClick={handleLogout2}>PACIJENT LOGOUT </Link> 
             </li>
-            
+            </div>
             :
 
             <></>
          
             }
 
-            
+</div>
 
 
           {/*token == null ?
@@ -252,9 +257,6 @@ const Navbar = ({token, token2}) => {
               </li>
 
           */} 
-
-          </ul>
-
           <div onClick={removeNavbar} className="closeNavbar">
             <AiFillCloseCircle className="icon"/>
         </div>
@@ -265,7 +267,7 @@ const Navbar = ({token, token2}) => {
           <TbGridDots className="icon"/> 
       </div>
 
-      </header>
+      
     </section>
     <Outlet />
     </div>

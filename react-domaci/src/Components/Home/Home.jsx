@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 
 import './home.css'
 import video from '../../assets/vid1.mp4'
+import scroll from '../../assets/scroll.png'
 
 import {CiLocationOn} from 'react-icons/ci'
 import {BsCalendarDate} from 'react-icons/bs'
@@ -23,58 +24,31 @@ const Home = () => {
       <video src={video} muted autoPlay loop type="video/mp4"></video>
 
       <div className="homeContent container">
-        <div className="textDiv">
-
-          <span data-aos="fade-up" className="smallText">
-            Neki tekst
-          </span>
-
-          <h1 data-aos="fade-up" className='homeTitle'>
-            Zakažite svoj termin
-          </h1>
-        </div>
+        
 
         <div data-aos="fade-up" className="cardDiv grid">
-          <div className="lokacijaInput">
-            <label htmlFor="adresa">Vaša adresa:</label>
-            <div className="input flex">
-              <CiLocationOn className="icon"/>
-              <input type="text" placeholder='Unesite Vašu adresu ovde'/>
-            </div>
-          </div>
-
-
-          <div className="dateInput">
-            <label htmlFor="date">Odaberite datum:</label>
-            <div className="input flex">
-              <BsCalendarDate className="icon"/>
-              <input type="date" placeholder='Unesite Vašu adresu ovde'/>
-            </div>
-          </div>
-
-    
-          <div className="zakazi flex">
-            
-            <button className='btn'>ZAKAŽI</button>
-          </div>
-
           
-        
+
+        <div className="textDiv">
+          <h1 data-aos="fade-up" className='homeTitle'>
+            Postanite naš pacijent
+          </h1>
+          <p className='podnaslov'>Dobro zdravlje i blagostanje Vašeg deteta nas je prioritet</p>
         </div>
-
+        <button className='btn-home'>O nama</button>
+        </div>
+        
         <div className="homeFooterIcons flex">
-          <div className="rightIcons">
-            <BsFacebook className="icon"/>
-            <BsInstagram className="icon"/>
-            <AiOutlinePhone className="icon"/>
-          </div>
+          
 
-          <div className="leftIcons">
-            
-          </div>
+        <a href="#" class="scroll-down">
+            <img src={scroll} alt="scroll Down"></img>
+        </a>
         </div>
       </div>
+      
     </section>
+    
   )
 }
 

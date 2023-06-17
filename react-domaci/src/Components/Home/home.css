@@ -4,7 +4,7 @@
   --gradientColor: linear-gradient(to right, #cf7956, #e5a88b);
   --whiteColor: hsl(0, 0%, 100%);
   --blackColor: hsl(201, 33%, 16%);
-  --textColor: #878f84;
+  --textColor: #F3A712;
   --whiteColorDeam: hsl(0, 0%, 93%);
   --greyText: rgb(190, 190, 190);
   --inputColor: rgb(230, 223, 223);
@@ -50,9 +50,14 @@
   margin: auto;
   color: var(--whiteColor);
   z-index: 100;
+  justify-content: center;
+  align-items: center;
 }
 .home .homeContent .textDiv {
   padding: 2rem 0;
+  color: #29335C;
+  margin: auto;
+  
 }
 .home .homeContent .textDiv .smallText {
   font-size: 13px;
@@ -61,13 +66,53 @@
 .home .homeContent .textDiv .homeTitle {
   position: relative;
   font-size: 1.8rem;
+  
 }
 .home .homeContent .cardDiv {
+  flex-direction: column;
   position: relative;
   padding: 2rem 1rem;
-  background: var(--whiteColor);
   border-radius: 10px;
   gap: qrem;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(5px);
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.scroll-down{
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  height: 40px;
+  width: 40px;
+  margin-left: -15px;
+  animation: scrollDown 2s ease infinite;
+}
+@keyframes scrollDown{
+  0%,20%,50%,80%,100%{
+      transform: translateY(0);
+  }
+  40%{
+      transform: translateY(-30px);
+  }
+  60%{
+      transform: translateY(-15px);
+  }
+}
+.btn-home{
+  padding: .8rem 2.5rem;
+  background: var(--gradientColor);
+  border-radius: 3rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
 }
 .home .homeContent .cardDiv label {
   display: block;

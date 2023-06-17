@@ -6,6 +6,10 @@ import img3 from '../../assets/img3.jpg'
 import img4 from '../../assets/img4.jpg'
 import img5 from '../../assets/img5.jpg'
 import img6 from '../../assets/img6.jpg'
+import slika1 from '../../assets/slika1.jpg'
+import slika2 from '../../assets/slika2.jpg'
+import slika3 from '../../assets/slika3.jpg'
+
 
 import Aos, { init } from 'aos'
 import 'aos/dist/aos.css'
@@ -65,37 +69,37 @@ const Main = () => {
   }, [])
   
   return (
+    <div className="">
     <section className='main container section'>
 
-      <div className="secTitle">
-        <h3 data-aos="fade-right" className="title">
-          Nove objave
-        </h3>
-      </div>
       <div className="secContent grid">
-        {
-          Data.map(({id, imgSrc, artTitle, subtitle, description, readMore})=>{
-              return(
-                <div key={id} data-aos="fade-up" className="singleArtical">
-                  <div className="imageDiv">
-                    <img src={imgSrc} alt={artTitle}/>
-                  </div>
-
-                  <div className="cardInfo">
-                    <h4 className="artTitle">{artTitle}</h4>
-                    <span className="content felx">
-                      <h5>{subtitle}</h5>
-                      <p>{description}</p>
-                      <button className='btn'><a href={readMore}>Pročitaj više</a></button>
-                    </span>
-                  </div>
-                </div>
-              )
-          })
-        }
+        <div className="title">
+          <h2>Za bezbrižno odrastanje  </h2>
+          <h2 className='podvuceno'> Vašeg deteta</h2>
+        </div>
+        <div className="tekst">
+          <p>Naša je želja da uživate u bezbrižnom odrastanju Vašeg deteta, a mi u Pedijatrijskoj ordinaciji <i>Medica Mea</i> smo tu da Vam budemo podrška kada Vam zatreba pomoć.
+          Pedijatrijska ordinacija <i>MedicaMea</i> je osnovana kako bi se u prijatnom ambijentu i na jednom mestu objedinilo znanje i iskustvo najboljih stručnjaka iz različitih oblasti pedijatrije.  O zdravlju Vaših najmilijih brinuće iskusni pedijatri, kliničari sa višegodišnjim iskustvom. 
+          </p>
+        </div>
       </div>
-
     </section>
+
+    <section className="galerijaSlider">
+      <div className="slider-wrapperr">
+        <div className="slider">
+          <img id='slide1' src={slika1} alt="" />
+          <img id='slide2' src={slika2} alt="" />
+          <img id='slide3'  src={slika3} alt="" />
+        </div>
+        <div className="slider-nav">
+          <a href="#slide1"></a>
+          <a href="#slide2"></a>
+          <a href="#slide3"></a>
+        </div>
+      </div>
+    </section>
+    </div>
   )
 }
 
