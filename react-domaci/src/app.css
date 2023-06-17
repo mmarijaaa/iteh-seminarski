@@ -59,12 +59,13 @@ li{
 }
 
 .btn{
-    padding: .6rem 1.5rem;
+    padding: .8rem 2.5rem;
     background: var(--gradientColor);
     border-radius: 3rem;
     border: none;
     outline: none;
     cursor: pointer;
+    
 }
 
 .btn a{
