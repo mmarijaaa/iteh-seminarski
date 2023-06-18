@@ -88,7 +88,8 @@ input{
 }
 
 body{
-    background: var(--bodyColor);
+    /*background: var(--bodyColor);*/
+    background-color: #f4f4f4; 
 }
 
 /*media*/

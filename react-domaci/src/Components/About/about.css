@@ -14,6 +14,13 @@
   --subtitleTextColor: #444955;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kalam:wght@300&family=Sacramento&display=swap');
+/*
+font-family: 'Great Vibes', cursive;
+font-family: 'Kalam', cursive;
+font-family: 'Sacramento', cursive;
+*/
+
 .o-meni {
   width: 80%;
   margin: auto;
@@ -91,3 +98,137 @@
     padding-top: 20px;
   }
 }/*# sourceMappingURL=about.css.map */
+
+.onama {
+  margin-bottom: 70px;
+}
+
+.onamatekst {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/onama.jpg');  
+  height: 500px;
+  background-size: cover;
+}
+
+.onamanaslov {
+  color: #29335C;
+  font-size: 30px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(5px);
+  width: 400px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#namapodvuceno {
+  text-decoration: underline;
+  text-decoration-color: #cf7956;
+  text-decoration-thickness: 5px; 
+  padding-left: 5px;
+}
+.onamapasus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  color: #29335C;
+  font-size: 18px;
+  text-align: center;
+}
+.nastimnaslov {
+  color: #29335C;
+  font-size: 30px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 70px;
+}
+
+.tim {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dok1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  margin-bottom: 50px;
+}
+.dok2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  margin-bottom: 50px;
+
+}
+.dok3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  margin-bottom: 50px;
+
+}
+
+.dokslika {
+  flex: 30%;
+}
+.dokslika img {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.dokopis {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 70px;
+  justify-content: center;
+  align-items: center;
+}
+.dokopis2 {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+.doktxt {
+  text-align: center;
+  padding-top: 20px;
+  color: #29335C;
+  padding-bottom: 40px;
+  font-size: 17px;
+}
+
+.dokime {
+  font-size: 22px;
+  color: #29335C;
+}
+.dokpotpis1 p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 25px;
+}
+.dokpotpis2 p {
+  font-family: 'Kalam', cursive;
+  font-size: 25px;
+}
+.dokpotpis3 p {
+  font-family: 'Sacramento', cursive;
+  font-size: 25px;
+}

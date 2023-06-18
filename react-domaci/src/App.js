@@ -25,6 +25,7 @@ import TerapijaKreiranje from './Components/TerapijaKreiranje'
 import ListaPregledaPacijent from './Components/ListaPregledaPacijent'
 import NavbarDoktor from './Components/Navbar/NavbarDoktor'
 import NavbarPacijent from './Components/Navbar/NavbarPacijent'
+import Kontakt from './Components/Kontakt/Kontakt'
 
 
 
@@ -67,7 +68,9 @@ const App = () => {
         
         <Route path='/about' element={<Ab/>}></Route>
 
-        <Route path='/blog' element={<Blog/>}></Route>
+        <Route path='/kontakt' element={<Kontakt/>}></Route>
+
+      
         <Route path='/register' element={<RegisterDoktor/>}></Route> 
 
         <Route path='/login' element={<LoginDoktor addToken={addToken} />}/>      

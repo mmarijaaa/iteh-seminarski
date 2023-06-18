@@ -9,6 +9,9 @@ import img6 from '../../assets/img6.jpg'
 import slika1 from '../../assets/slika1.jpg'
 import slika2 from '../../assets/slika2.jpg'
 import slika3 from '../../assets/slika3.jpg'
+import ikonica1 from '../../assets/nutritionist.png'
+import ikonica2 from '../../assets/blood-test.png'
+import ikonica3 from '../../assets/check-up.png'
 
 
 import Aos, { init } from 'aos'
@@ -96,6 +99,57 @@ const Main = () => {
           <a href="#slide1"></a>
           <a href="#slide2"></a>
           <a href="#slide3"></a>
+        </div>
+      </div>
+    </section>
+
+    <section className='ikonice-grupa'>
+      <div className="ikonice">
+
+        <div className="i1">
+          <div className="islika">
+            <img className='iikonica' src={ikonica1} alt="" />
+          </div>
+          <div className="inaslov">
+            <h3>ISKUSNI PEDIJATRI</h3>
+          </div>
+          <div className="itekst">
+            <p>
+              U timu nalazi se tri pedijatra 
+              sa dugogodišnjim iskustvom koji se brinu o 
+              zdravlju vašeg deteta
+            </p>
+          </div>
+        </div>
+
+        <div className="i2">
+          <div className="islika">
+            <img className='iikonica' src={ikonica2} alt="" />
+          </div>
+          <div className="inaslov">
+            <h3>BRZA LAB DIJAGNOSTIKA</h3>
+          </div>
+          <div className="itekst">
+            <p>
+              CRP i krvna slika iz kapi iz prsta, brzi test 
+              na Streptokoke, alergološko testiranje 
+            </p>
+          </div>
+        </div>
+
+        <div className="i3">
+          <div className="islika">
+            <img className='iikonica' src={ikonica3} alt="" />
+          </div>
+          <div className="inaslov">
+            <h3>NAJBOLJI KONSULTANTI</h3>
+          </div>
+          <div className="itekst">
+            <p>
+              Konsultanti iz svih oblasti omogucavaju rešavanje specifičnih bolesti kod dece 
+              i odraslih
+            </p>
+          </div>
         </div>
       </div>
     </section>
