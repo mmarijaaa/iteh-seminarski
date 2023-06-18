@@ -110,7 +110,7 @@ const Navbar = ({token, token2}) => {
             <Link to="/about" className="navLink">O nama</Link>
             </li>
             <li className="navItem">
-              <a href="#" className="navLink">Kontakt</a>
+              <a href="/kontakt" className="navLink">Kontakt</a>
             </li>
           </div>
 

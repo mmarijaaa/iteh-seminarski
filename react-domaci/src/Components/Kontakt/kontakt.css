@@ -1,0 +1,126 @@
+.kontaktslika {
+    background-image: url('../../assets/kontaktslika.jpg');  
+    height: 500px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.ktekst {
+    color: #29335C;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#podvuceno {
+    font-size: 30px;
+    color: #29335C;
+    text-decoration: underline;
+    text-decoration-color: #cf7956;
+    text-decoration-thickness: 5px; 
+    padding-left: 5px;
+}
+#mapaslika {
+    width: 100%;
+    height: 600px;
+   
+}
+.mapa {
+    margin-bottom: 100px;
+}
+
+.slicica img{
+    height: 50px;
+    width: 50px;
+    margin: 25px
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+
+.info .telefoni {
+    flex: 33%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 120px;
+}
+.info .drustvenemreze {
+    flex: 33%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+}
+.info .ostalo {
+    flex: 33%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+    
+}
+.adresa {
+    display: flex;
+    flex-direction: row;
+}
+.email{
+    display: flex;
+    flex-direction: row;
+}
+.vreme {
+    display: flex;
+    flex-direction: row;
+}
+.insta {
+    display: flex;
+    flex-direction: row;
+}
+.fb {
+    display: flex;
+    flex-direction: row;
+}
+.txt2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.txt2 p {
+    margin-bottom: 15px;
+    color: #29335C;
+}
+.txttel {
+    margin-top: 40px;
+}
+.txttel p{
+    margin-bottom: 15px;   
+    color: #29335C;
+}
+.txtadr {
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.txtadr p {
+    margin-bottom: 15px;
+    color:#29335C;
+}
+.txt {
+    margin-top: 40px;
+}
+.txt p {
+    margin-bottom: 15px;
+    color: #29335C;
+}

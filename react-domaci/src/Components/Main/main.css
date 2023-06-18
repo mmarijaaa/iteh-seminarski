@@ -17,6 +17,7 @@
 .main {
   width: 100%;
 }
+
 .main .secTitle .title {
   position: relative;
   width: -moz-max-content;
@@ -118,8 +119,10 @@
   gap: 0.5rem;
 }
 
-.galerijaSlider{
-  padding: 2rem;
+.galerijaSlider {
+  height: 500px; 
+  background-color: #f4f4f4;
+
 }
 .slider-wrapperr{
   position: relative;
@@ -129,17 +132,19 @@
 }
 .slider{
   display: flex;
-  aspect-ratio: 16/9;
-  overflow-x: auto;
+  /*aspect-ratio: 16/9;*/
+  overflow-x: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-
+  /*box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);*/
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
 }
 .slider img{
   flex: 1 0 100%;
   scroll-snap-align: start;
   object-fit: cover;
+  height: 30rem;
 }
 .slider-nav{
   display: flex;
@@ -194,3 +199,62 @@
     height: auto;
   }
 }/*# sourceMappingURL=main.css.map */
+
+.ikonice-grupa{
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+.ikonice {
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+.ikonice .i1 {
+  flex: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ikonice .i2 {
+  flex: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ikonice .i3 {
+  flex: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ikonice img {
+  height: 150px;
+}
+.ikonice .inaslov {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ikonice h3 {
+  font-size: 25px;
+  color: #f3a712;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.ikonice .itekst {
+  text-align: center;
+ 
+}
+
+.ikonice p{
+  font-size: 20px;
+  color: #29335C;
+  padding-left: 50px;
+  padding-right: 50px;
+}
