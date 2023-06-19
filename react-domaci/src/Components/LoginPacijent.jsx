@@ -45,6 +45,7 @@ const LoginPacijent = ({addToken2}) => {
     return (
         <section>
         <div className='formalogin'> 
+        <h1>Prijava pacijenta</h1>
             <form onSubmit={handleLogin}>
                 <div className="forma">
                     <input 
@@ -68,14 +69,14 @@ const LoginPacijent = ({addToken2}) => {
                         type="submit"
                         className="dugme"
                     >
-                    Login Pacijent
+                    Prijavite se
                     </button>
 
                     <p>
                         Nemate nalog?    
                         
-                        <a href='/registerpacijent'>
-                            Registracija pacijenta
+                        <a href='/kontakt'>
+                            Kontaktirajte Vašeg doktora
                         </a>
                     </p>
                 </div>

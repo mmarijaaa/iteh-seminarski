@@ -3,12 +3,13 @@ import './footer.css'
 
 import emailjs from '@emailjs/browser'
 import video2 from '../../assets/vid2.mp4'
-import logo from '../../assets/logo34.png'
+import logo from '../../assets/logo37.png'
 
 import {BsFacebook} from 'react-icons/bs'
 import {BsInstagram} from 'react-icons/bs'
 import {AiOutlinePhone} from 'react-icons/ai'
 import {FiSend} from 'react-icons/fi'
+ 
 
 import Aos, { init } from 'aos'
 import 'aos/dist/aos.css'
@@ -33,7 +34,51 @@ const Footer = () => {
   };
  
   return (
-    <section className='footer'>
+    
+    <footer >
+        <div class="red-footer">
+            <div class="footer-col">
+                <img src={logo} alt=''/>
+                
+            </div>
+            
+            <div class="footer-col">
+                
+                <ul>
+                <h3>Navigacija</h3>
+                    <li><a href="/">Početna</a></li>
+                    <li><a href="/about">O nama</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-col-1">
+
+            <h4>MedicaMea - Kontaktirajte nas</h4>
+          
+
+          <div className="inputDiv flex">
+            <form ref={form} onSubmit={posaljiMail}>
+              
+              <input type="text" name="user_name" placeholder='Vaše ime'/>
+              
+              <input type="email" name="user_email" placeholder='Vaš email'/>
+              
+              <textarea name="message" placeholder='Poruka'/>
+              <input className='btn' type="submit" value="Send" />
+            </form>
+            
+          </div>
+
+
+
+            </div>
+        </div>
+        <hr></hr>
+        <p className="copyright">Made for <img src={logo} className="logo-copyrigh"/> by Marija i Milica
+            </p>
+    </footer>
+    /*<section className='footer'>
       <div className="videoDiv">
         <video src={video2} loop autoPlay muted type="video/mp4"></video>
       </div>
@@ -89,7 +134,7 @@ const Footer = () => {
          
         </div>
       </div>
-    </section>
+    </section>*/
   )
 }
 

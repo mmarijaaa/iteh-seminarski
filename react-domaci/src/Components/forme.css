@@ -132,3 +132,211 @@ h2 {
 .greske {
     padding-top: 70px;
 }
+/*------------Footer-----------------*/
+footer {
+    clear: both;
+    width: 100%;
+    bottom: 0;
+    background: #f3a712;
+    color: #fff;
+    /*padding-top: 50px;*/
+    border-top-left-radius: 250px;
+    font-size: 13px;
+    /*line-height: 20px;*/
+    height: 350px;
+    position: relative;
+}
+
+.red-footer {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    
+}
+
+.footer-col {
+    flex-basis: 30%;
+    padding: 10px;
+    padding-top: 30px;
+    flex: 25%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.footer-col-1{
+    flex: 40%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+}
+
+.footer-col img {
+   
+    /*margin-bottom: 30px;*/
+    padding-top: 35px
+}
+
+.footer-col h3 {
+    padding-bottom: 15px;
+}
+
+.footer-col ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid white;
+    margin: 2px auto;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.logo-copyrigh {
+    width: 80px;
+    padding-top: 5px;
+}
+
+.inputDiv {
+    gap: 1rem;
+}
+.inputDiv form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+.inputDiv input {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    margin-top: 10px;
+    border-radius: 3rem;
+    border: 1px solid var(--whiteColor);
+    outline: none;
+    background: transparent;
+    color: var(--whiteColor);
+  }
+ .inputDiv input::-moz-placeholder {
+    color: var(--whiteColor);
+    opacity: 0.8;
+  }
+.inputDiv input::placeholder {
+    color: var(--whiteColor);
+    opacity: 0.8;
+  }
+.inputDiv textarea {
+    font-size: large;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    border-radius: 3rem;
+    border: 1px solid var(--whiteColor);
+    outline: none;
+    background: transparent;
+    color: var(--whiteColor);
+  }
+.inputDiv textarea::-moz-placeholder {
+    color: var(--whiteColor);
+    opacity: 0.8;
+  }
+.inputDiv textarea::placeholder {
+    color: var(--whiteColor);
+    opacity: 0.8;
+  }
+.inputDiv .btn {
+    margin-left: 140px;
+    width: 50%;
+    justify-content: center;
+    color: var(--whiteColor);
+    font-weight: 500;
+    gap: 0.5rem;
+    background-color: #29335c; 
+    border: #29335c;
+  }
+
+  .inputDiv .btn:hover{
+    background-color: white;
+    color: #29335c;
+
+  }
+
+/*-----------------------------Register doktora-------------------------*/
+.containerRegister{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.slikadesno{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.slikadesno img{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    
+}
+.formalogin{
+    flex: 50%;
+    
+}
+.formalogin h1{
+    color: #29335c;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 3px;
+}
+.forma input{
+    width: 400px;
+    height: 55px;
+    padding: 0.5rem 0.7rem;
+    margin-top: 15px;
+    border-radius: 3rem;
+    border: 1px solid #29335c;
+    outline: none;
+    background: transparent;
+}
+.forma button{
+    width: 50%;
+    justify-content: center;
+    color: var(--whiteColor);
+    font-weight: 500;
+    font-size: 17px;
+    gap: 0.5rem;
+    background-color: #29335c; 
+    border: #29335c;
+    margin-top: 30px;
+    border-radius: 30px;
+    height: 35px;
+}
+.forma button:hover{
+    background: #f3a712;
+    color: #fff;
+}
+
+/*-----------------------------Login doktora-------------------------*/
+.formalogin form p{
+    color: #29335c;
+    padding: 15px;
+    font-size: 17px;
+}
+.formalogin form a{
+    text-decoration: underline;
+}
