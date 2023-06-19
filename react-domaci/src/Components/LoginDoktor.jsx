@@ -53,6 +53,8 @@ const LoginDoktor = ({addToken}) => {
         <section>
             
         <div className='formalogin'> 
+        <h1>Prijava doktora</h1>
+
             <form onSubmit={handleLogin}>
                 <div className="forma">
                     
@@ -78,7 +80,7 @@ const LoginDoktor = ({addToken}) => {
                         type="submit"
                         className="dugme"
                     >
-                    Login Doktora
+                    Prijavite se
                     </button>
 
                     <p>

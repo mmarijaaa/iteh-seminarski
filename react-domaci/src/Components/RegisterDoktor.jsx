@@ -3,6 +3,7 @@ import './forme.css';
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
+import img6 from '../assets/slika4.png'
 
 
 const RegisterDoktor = () => {
@@ -36,8 +37,10 @@ const RegisterDoktor = () => {
     }
 
     return (
-        <section>
+        <section className='containerRegister'>
+        
         <div className='formalogin'>  
+        <h1>Registracija doktora</h1>
             <form onSubmit={handleRegister}>
                 <div className="forma">
                     <input 
@@ -69,10 +72,13 @@ const RegisterDoktor = () => {
                         type="submit"
                         className="dugme"
                     >
-                    Register Doktora
+                    Registrujte se
                     </button>
                 </div>
             </form>
+        </div>
+        <div className="slikadesno">
+            <img src={img6} alt="" />
         </div>
         </section>
 
