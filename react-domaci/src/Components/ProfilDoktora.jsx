@@ -8,11 +8,11 @@ const ProfilDoktora = () => {
 
     return(
 
-        <div className='formalogin'>
-            <div className="profildoktora">
+        <div className='pocetna'>
+            <div className="linkovi">
 
-                <Link to='/doktor/registerpacijent'>Kreiraj pacijenta</Link>
-                <Link to='/doktor/listapacijenata'>Lista pacijenata</Link> 
+                <Link className="link" to='/doktor/registerpacijent'>Kreiraj pacijenta</Link>
+                <Link className="link" to='/doktor/listapacijenata'>Lista pacijenata</Link> 
 
             </div>
 

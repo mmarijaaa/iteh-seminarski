@@ -143,32 +143,34 @@ function handleSacuvajTerapiju(e) {
 
   return (
     <div className="formapregled">
-
-    
-    <h2> Pacijent: {pacijent_name} </h2>
-    
-        <button onClick={toggleModal2}>
+      <div className="dugmenovipregled">
+        <button id="novipregled" onClick={toggleModal2}>
           NOVI PREGLED
         </button>
+      </div>
+
     {modal2 && (
     <div className='modal'>
     <div className='overlay' onClick={toggleModal2}></div>
     <div className='content'>
         
 
-        <div className="datumpregleda" >
-        <input type="datetime-local" name="datum_pregleda" onInput={handleInput}/>
+        <div className="modalpolje" >
+          <p>Vreme pregleda: </p><input type="datetime-local" name="datum_pregleda" onInput={handleInput}/>
         </div>
-        <div className="opispregleda">
-        <input type="text" name="opis" onInput={handleInput}/>
+        <div className="modalpoljeopis">
+          <p>Opis pregleda: </p><textarea type="text" name="opis" onInput={handleInput}/>
         </div>
-        <button onClick={handleZakaziPregled}>
-        SACUVAJ
+
+        <div className="dugmeklasa">
+        <button className="izmenadugme" onClick={handleZakaziPregled}>
+        SAČUVAJ PREGLED
         </button>
-        <button onClick={toggleModal}>
+      
+        <button className="izmenadugme" onClick={toggleModal}>
           KREIRAJ TERAPIJU 
         </button>
-
+        </div>
 
         
       </div>
@@ -179,30 +181,32 @@ function handleSacuvajTerapiju(e) {
     <div className='modal'>
     <div className='overlay' onClick={toggleModal}></div>
     <div className='content'>
-    <div className="pregled"><h1>TERAPIJA</h1></div>
+    <div className='pregled'></div>
 
-          <div className="datumpregleda" >
-              <input type="text" name="lekovi" onInput={handleInput2}/>
+          <div className="modalpolje" >
+              <p>Lekovi: </p><input type="text" name="lekovi" onInput={handleInput2}/>
           </div>
-          <div className="datumpregleda" >
-              <input type="text" name="nacin_primene" onInput={handleInput2}/>
+          <div className="modalpoljeopis" >
+              <p>Način primene: </p><textarea type="text" name="nacin_primene" onInput={handleInput2}/>
           </div>
-          <div className="datumpregleda" >
-              <input type="text" name="komentar" onInput={handleInput2}/>
+          <div className="modalpoljeopis" >
+              <p>Komentar: </p><textarea type="text" name="komentar" onInput={handleInput2}/>
           </div>
 
-          <button onClick={handleSacuvajTerapiju}>
-              SACUVAJ TERAPIJU
+          <div className="dugmeklasa">
+          <button className="izmenadugme" onClick={handleSacuvajTerapiju}>
+              SACUVAJ TERAPIJU 
           </button>
+          </div>
+    </div>
+    </div>
 
-    </div>
-    </div>
     )}
       
 
 
       <div className="listapregleda">
-      <h2>Lista pregleda</h2>
+      <h1>Lista pregleda pacijenta:  {pacijent_name}</h1>
         {pregledi == null ? <div><h2>NEMA Pregleda</h2></div> : pregledi.map((pregled)=>(
         <Pregled pregled={pregled} key={pregled.id}/>
         ))}

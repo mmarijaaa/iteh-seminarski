@@ -89,24 +89,24 @@ const Pregled = ({pregled, token}) => {
 
     return (
       <div>
-      <div className="pregled">
+      <div className="pregledi">
 
         <div className="polje">
           {pregled.datum_pregleda}
         </div>
-        <div className="polje">
+        <div className="polje1">
           {pregled.opis}
         </div>
         {/*<button onClick={handleTerapija}>
           TERAPIJA
         </button>*/}
-        <Link to='/doktor/terapijapacijenta' onClick={handleTerapija} className='polje'>TERAPIJA</Link>
+        <Link to='/doktor/terapijapacijenta' onClick={handleTerapija} className='polje3'>TERAPIJA</Link>
         
-        <button onClick={toggleModal} className='polje'>
-          IZMENI PREGLED
+        <button onClick={toggleModal} className='polje3'>
+          IZMENA
         </button>
-        <button onClick={handleBrisanje}>
-          OBRISI PREGLED 
+        <button className='polje3' onClick={handleBrisanje}>
+          BRISANJE
         </button>
 
 
@@ -115,16 +115,18 @@ const Pregled = ({pregled, token}) => {
         <div className='overlay' onClick={toggleModal}></div>
         <div className='content'>
 
-        <div className="datum">
-          <input type="text" name='datum_pregleda' onInput={handleInput} defaultValue={pregledData.datum_pregleda}/>
+        <div className="modalpolje">
+          <p>Vreme pregleda: </p><input type="text" name='datum_pregleda' onInput={handleInput} defaultValue={pregledData.datum_pregleda}/>
         </div>
-        <div className="opis">
-          <input type="text" name='opis' onInput={handleInput} defaultValue={pregledData.opis}/>
+        <div className="modalpoljeopis">
+          <p>Opis pregleda: </p><textarea type="text" name='opis' onInput={handleInput} defaultValue={pregledData.opis}/>
           
         </div>
-        <button onClick={handleIzmenaPregled}>
+        <div className="dugmeklasa">
+        <button className='izmenadugme' onClick={handleIzmenaPregled}>
           IZMENI PREGLED
         </button>
+        </div>
 
         </div>
         </div>

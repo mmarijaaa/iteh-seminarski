@@ -35,7 +35,7 @@ const Home = () => {
           </h1>
           <p className='podnaslov'>Dobro zdravlje i blagostanje Vašeg deteta nas je prioritet</p>
         </div>
-        <button className='btn-home'>O nama</button>
+        <button className='btn-home'><a href='/about'>O nama</a></button>
         </div>
         
         <div className="homeFooterIcons flex">

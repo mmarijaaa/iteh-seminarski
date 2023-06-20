@@ -37,28 +37,24 @@ const PregledPacijent = ({pregled}) => {
           
   
   return (
-    <div>
-        PregledPacijent
+   
 
-        <div className="pregled">
-            <div className="polje">
+    <div className="jedanpregled">
+        <div className="pregledpacijent">
+            {/*<div className="polje">
             {pregled.id}
+            </div>*/}
+            <div className="modalpolje">
+            <p>Vreme pregleda: </p>{pregled.datum_pregleda}
             </div>
-            <div className="polje">
-            {pregled.datum_pregleda}
-            </div>
-            <div className="polje">
-            {pregled.opis}
+            <div className="modalpolje">
+            <p>Opis pregleda: </p>{pregled.opis}
             </div>
         </div>
 
-        
-        <h1>TERAPIJA</h1>
-
-        <div>
+        <div className='terapijapacijent'>
             {terapijaData != null ?
             
-            //<h1>lekovi</h1>
             terapijaData.map((terapija)=>(
             <TerapijaPregled terapija={terapija} key={terapija.id}/> ))
             :
@@ -66,9 +62,10 @@ const PregledPacijent = ({pregled}) => {
             }
             
           </div>
-    
 
     </div>
+
+    
   )
 }
 export default PregledPacijent

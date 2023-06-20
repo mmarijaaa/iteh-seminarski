@@ -7,7 +7,7 @@ body.active-modal {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 50px;
 }
 
 .profildoktora {
@@ -25,29 +25,16 @@ body.active-modal {
     align-items: center;
 }
 
-.listapacijenata{
+/*.listapacijenata{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
-}
+}*/
 
-.pacijenti {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border: 2px black solid;
-}
 
-.pacijenti button {
-    margin: 10px;
-}
-.pacijenti .polje {
-    margin: 15px;
-}
+
 .modal1 {
     display: flex;
     flex-direction: row;
@@ -58,7 +45,7 @@ body.active-modal {
 }
 
 
-.formapregled {
+/*.formapregled {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,17 +65,9 @@ body.active-modal {
     margin: 10px;
 }
 
-.listapregleda {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 50px;
-}
-
 .h1{
     padding: 150px;
-}
+}*/
 
 .meni1 {
     display: flex;
@@ -96,39 +75,12 @@ body.active-modal {
     justify-content: space-between;
 }
 
-.modal .content {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    line-height: 1.4;
-    background:#f1f1f1;
-    padding: 30px 60px;
-    max-width: 800px;
-    min-width: 600px;
-    display: flex;
-    flex-direction: column;    
-}
-.modal, .overlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-}
-.overlay {
-    background: rgba(49, 49, 49, 0.6);
-}
 
 h2 {
     padding-bottom: 20px;
 }
 
-.listapregleda {
-    padding: 100px;
-}
+
 .greske {
     padding-top: 70px;
 }
@@ -340,3 +292,347 @@ hr {
 .formalogin form a{
     text-decoration: underline;
 }
+/*------------Profil doktora-----------------*/
+.pocetna {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+
+}
+.linkovi {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+} 
+.link {
+    width: 300px;
+    justify-content: center;
+    color: var(--whiteColor);
+    font-weight: 500;
+    font-size: 20px;
+    gap: 0.5rem;
+    background-color: #29335c; 
+    border: #29335c;
+    border-radius: 30px;
+    height: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    padding-top: 10px;
+}
+.link:hover {
+    background: #f3a712;
+    color: #fff;
+}
+
+/*------------Lista pacijenata-----------------*/
+.listapacijenata h1{
+    color: #29335c;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 3px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.listapacijenata {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.pacijenti {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 1000px;
+    background: rgba(255,255,255,0.5);
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.polje {
+    margin: 10px;
+    flex: 20%;
+    text-align: center;
+    color: #29335c;
+    font-size: 18px;
+}
+.polje2 {
+    margin: 10px;
+    flex: 15%;
+    padding: 10px;
+    background-color: #f4f4f4; 
+    border-radius: 50px;
+    text-align: center;
+    color: #29335c;
+    border: 1.5px solid #29335c;
+    font-size: 17px;
+}
+.polje2:hover {
+    background-color: #f3a712;
+    border: 1.5px solid #f3a712;
+    color: white;
+}
+
+.pregledi {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 1100px;
+    background: rgba(255,255,255,0.5);
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.polje {
+    margin: 10px;
+    flex: 20%;
+    text-align: center;
+    color: #29335c;
+    font-size: 18px;
+}
+/*------------Lista pregleda-----------------*/
+.polje1 {
+    margin: 10px;
+    flex: 35%;
+    text-align: center;
+    color: #29335c;
+    font-size: 18px;
+}
+.polje3{
+    margin: 10px;
+    flex: 15%;
+    text-align: center;
+    color: #29335c;
+    border: 1.5px solid #29335c;
+    font-size: 17px;
+    padding: 10px;
+    background-color: #f4f4f4; 
+    border-radius: 50px;
+}
+.polje3:hover {
+    background-color: #f3a712;
+    border: 1.5px solid #f3a712;
+    color: white;
+}
+.listapregleda h1 {
+    color: #29335c;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 3px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.dugmenovipregled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+#novipregled {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 50px;
+    border: 1.5px solid #f3a712;
+    background-color:#f3a712 ;
+}
+#novipregled:hover {
+    background-color: #29335c;
+    border: 1.5px solid #29335c;
+}
+.listapregleda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+/*------------Modali-----------------*/
+.modal .content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1.4;
+    background:#f4f4f4;
+    padding: 40px 70px;
+    max-width: 800px;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;  
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+.overlay {
+    background: rgba(49, 49, 49, 0.6);
+}
+.modalpolje {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #29335c;
+    align-items: center;
+}
+.modalpolje p {
+    margin-right: 20px;
+    color: #29335c;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 2px;
+    font-weight: bold;
+    flex: 30%;
+}
+.modalpolje input {
+    color: #29335c;
+    border-radius: 50px;
+    padding: 10px;
+    width: 100%;
+    border: 1.5px solid #29335c;
+    flex: 70%;
+}
+.dugmeklasa {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.izmenadugme {
+    width: 250px;
+    justify-content: center;
+    color: var(--whiteColor);
+    font-weight: 500;
+    font-size: 17px;
+    gap: 0.5rem;
+    background-color: #29335c; 
+    border: #29335c;
+    border-radius: 30px;
+    height: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    padding-top: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.izmenadugme:hover {
+    background: #f3a712;
+    color: #fff;
+}
+.modalpoljeopis p {
+    margin-right: 20px;
+    color: #29335c;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 2px;
+    font-weight: bold;
+    flex: 30%;
+}
+.modalpoljeopis {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #29335c;
+    align-items: center;
+}
+.modalpoljeopis input {
+    color: #29335c;
+    border-radius: 50px;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    border: 1.5px solid #29335c;
+    flex: 70%;
+}
+.modalpoljeopis textarea {
+    color: #29335c;
+    border-radius: 50px;
+    padding: 10px;
+    width: 420px;
+    height: 100px;
+    font-size: 20px;
+    padding-left: 30px;
+    border: 1.5px solid #29335c;
+    flex: 70%;
+}
+/*------------Terapija-----------------*/
+.terapijainfo {
+    width: 500px;
+    background: rgba(255,255,255,0.5);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 50px;
+    border-radius: 10px;
+}
+.dugmeunazad {
+    width: 250px;
+    justify-content: center;
+    color: var(--whiteColor);
+    font-weight: 500;
+    font-size: 17px;
+    gap: 0.5rem;
+    background-color: #f3a712; 
+    border: #29335c;
+    border-radius: 30px;
+    height: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+    padding-top: 12px;
+    margin-top: 30px; 
+    margin-bottom: 50px;
+}
+.dugmeunazad:hover {
+    background: #29335c;
+    color: #fff;
+}
+/*------------Profil pacijenta-----------------*/
+
+.jedanpregled {
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.pregledpacijent {
+    flex: 50%;
+    background: rgba(255,255,255,0.5);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /*align-items: flex-start;*/
+}
+.terapijapacijent {
+    flex: 50%;
+    background: rgba(255,255,255,0.5);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 20px;
+    
+}
+

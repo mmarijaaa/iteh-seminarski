@@ -114,6 +114,9 @@
   color: white;
   font-size: 1rem;
 }
+.btn-home a {
+  color: white;
+}
 .home .homeContent .cardDiv label {
   display: block;
   color: var(--textColor);

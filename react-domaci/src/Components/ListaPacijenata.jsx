@@ -45,7 +45,7 @@ const ListaPacijenata = () => {
 
   return (
     <div className="listapacijenata">
-        <h2>Lista pacijenata</h2>
+        <h1>Lista pacijenata</h1>
         {pacijents == null ? 
           <div><h2>NEMA PACIJENATA</h2></div> 
         : pacijents.map((pacijent)=>(
