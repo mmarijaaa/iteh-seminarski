@@ -61,7 +61,6 @@ li{
 .btn{
     padding: .8rem 2.5rem;
     background: var(--gradientColor);
-    
     border-radius: 3rem;
     border: none;
     outline: none;

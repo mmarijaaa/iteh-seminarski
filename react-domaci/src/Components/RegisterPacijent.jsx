@@ -54,7 +54,9 @@ const RegisterPacijent = ({token}) => {
         <section>
         <div className='formalogin'> 
             <form onSubmit={handleRegister}>
+                
                 <div className="forma">
+                <h1>KREIRANJE PACIJENTA</h1> 
                     <input 
                         type="text"
                         id="pacijentname"

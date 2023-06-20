@@ -97,48 +97,48 @@ const Pacijent = ({pacijent}) => {
 
     <div className="pacijenti">
         <div className='polje'>
-          Pacijent: {pacijent.name}
+          {pacijent.name}
         </div>
         <div className="polje">
-          GODINE: {pacijent.godine}
+          {pacijent.godine} godina/e
         </div>
-        <button onClick={toggleModal2}>
-          PRIKAZI DETALJE PACIJENTA
+        <button className="polje2" onClick={toggleModal2}>
+          DETALJI
         </button>
-        <button onClick={toggleModal}>
-          IZMENI PACIJENTA
+        <button className="polje2" onClick={toggleModal}>
+          IZMENA
         </button>
-        <button onClick={handleBrisanje}>
-          OBRISI PACIJENTA
+        <button className="polje2" onClick={handleBrisanje}>
+          BRISANJE
         </button>
         {/*<button onClick={handlePregled}>
           ZAKAZI PREGLED
         </button>*/}
-        <Link to='/doktor/listapregleda' onClick={handlePregled}>PREGLEDI</Link>
+        <Link className="polje2" to='/doktor/listapregleda' onClick={handlePregled}>PREGLEDI</Link>
     </div>
 
     {modal2 && (
     <div className='modal'>
     <div className='overlay' onClick={toggleModal2}></div>
     <div className='content'>
-        <div className='ime'>
-          Pacijent: {pacijent.name}
+        <div className='modalpolje'>
+          <p>Ime pacijenta: </p> {pacijent.name}
         </div>
-        <div className="jmbg">  
-          JMBG: {pacijent.jmbg}
+        <div className="modalpolje">  
+        <p>JMBG:</p> {pacijent.jmbg}
         </div>
-        <div className="roditelj">
-          RODITLEJ: {pacijent.roditelj}
+        <div className="modalpolje">
+        <p>ime roditelja:</p> {pacijent.roditelj}
         </div>
-        <div className="godine">
-          GODINE: {pacijent.godine}
+        <div className="modalpolje">
+        <p>Uzrast pacijenta:</p> {pacijent.godine}
         </div>
-        <div className="email">
-          EMAIL: {pacijent.email}
+        <div className="modalpolje">
+        <p>Email roditelja:</p> {pacijent.email}
         </div>
-        <div className="doktor">
+        {/*<div className="doktor">
           DOKTOR: {pacijent.id_doktor}
-        </div>
+        </div>*/}
     </div>
     </div>
     )} 
@@ -150,34 +150,35 @@ const Pacijent = ({pacijent}) => {
     <div className='content'>
 
 
-      <button onClick={toggleModal}>Zatvori</button> 
-      <div className='id'>
+      {/*<button onClick={toggleModal}>Zatvori</button>*/}
+      <div className='modalpolje'>
       <input type="hidden" onInput={handleInput} name="id" value={pacijentData.id}/>
       </div>
-      <div className='ime'>
-      Pacijent: <input type="text"  name="name" onInput={handleInput} defaultValue={pacijentData.name}  />
+      <div className='modalpolje'>
+      <p>Ime pacijenta:</p> <input type="text"  name="name" onInput={handleInput} defaultValue={pacijentData.name}  />
       </div>
-      <div className="jmbg">  
-        JMBG: <input type="text"  name="jmbg" onInput={handleInput} defaultValue={pacijentData.jmbg}/>
+      <div className="modalpolje">  
+      <p>JMBG:</p> <input type="text"  name="jmbg" onInput={handleInput} defaultValue={pacijentData.jmbg}/>
       </div>
-      <div className="roditelj">
-        RODITLEJ: <input type="text"  name="roditelj" onInput={handleInput} defaultValue={pacijentData.roditelj}/> 
+      <div className="modalpolje">
+      <p>Ime roditelja:</p> <input type="text"  name="roditelj" onInput={handleInput} defaultValue={pacijentData.roditelj}/> 
       </div>
-      <div className="godine">
-        GODINE: <input type="text"  name="godine" onInput={handleInput} defaultValue={pacijentData.godine}/>
+      <div className="modalpolje">
+      <p>Uzrast pacijenta: </p><input type="text"  name="godine" onInput={handleInput} defaultValue={pacijentData.godine}/>
       </div>
-      <div className="email">
-        EMAIL: <input type="text"  name="email" onInput={handleInput} defaultValue={pacijentData.email}/>
+      <div className="modalpolje">
+      <p>Email roditelja: </p><input type="text"  name="email" onInput={handleInput} defaultValue={pacijentData.email}/>
       </div>
       
       <div className='iddok'>
       <input type="hidden" onInput={handleInput} value={pacijentData.id_doktor}/>
       </div>
       
-      <button onClick={handleIzmena}>
+      <div className="dugmeklasa">
+      <button className="izmenadugme" onClick={handleIzmena}>
         IZMENI PACIJENTA
       </button>
-      
+      </div>
     </div>
     </div>
     )}

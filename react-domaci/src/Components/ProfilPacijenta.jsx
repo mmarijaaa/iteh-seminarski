@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 const ProfilPacijenta = () => {
 
     return(
-      <div className='listapregleda'>
-        <div>
-            <Link to='/pacijent/listapregleda'>Lista pregleda</Link>
+      <div className='pocetna'>
+        <div className='linkovi'>
+            <Link className="link" to='/pacijent/listapregleda'>Lista pregleda</Link>
 
         </div>
         <Outlet/>

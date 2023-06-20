@@ -115,56 +115,60 @@ const Terapija = ({terapija, token}) => {
     return (
 
         <div className="formapregled">
+        
+        <div className="dugmeklasa">
+        <Link to='/doktor/listapregleda' className='dugmeunazad'> Lista pregleda </Link> 
+        </div>
 
-        <Link to='/doktor/listapregleda'> Lista pregleda </Link> 
-
-        <h1>TERAPIJA</h1>
-
-        <div className="datumpregleda" >
+        <div className='terapijainfo'>
+        <h1>Terapija</h1>
+        
+        <div className="modalpolje" >
             {/*NAZIV: {terapija.lekovi}*/}
-            LEKOVI: <input type="text" defaultValue={terapija.lekovi}/>
+            <p>Lekovi: </p>{terapija.lekovi}
         </div>
-        <div className="datumpregleda" >
+        <div className="modalpoljeopis" >
             {/*NACIN PRIMENE: {terapija.nacin_primene}*/}
-            NACIN PRIMENE: <input type="text" defaultValue={terapija.nacin_primene}/>
+            <p>Način primene: </p>{terapija.nacin_primene}
         </div>
-        <div className="datumpregleda" >
+        <div className="modalpoljeopis" >
             {/*KOMENTAR: {terapija.komentar}*/}
-            KOMENTAR: <input type="text" defaultValue={terapija.komentar}/>
+            <p>Komentar: </p>{terapija.komentar}
         </div>
-
-      
-        <div className='izmenaterapija'>
-        <button onClick={toggleModal}>
-          IZMENI TERAPIJU
+        <div className="dugmeklasa">
+        <button className='izmenadugme' onClick={toggleModal}>
+          IZMENA TERAPIJE
         </button>
-        {/*<button onClick={handleBrisanje}>
-          OBRISI TERAPIJU
-        </button>*/}
+        </div>
+        </div>
+      
+        
+        
 
         {modal && (
     <div className='modal'>
     <div className='overlay' onClick={toggleModal}></div>
     <div className='content'>
-            <div className="datumpregleda" >
-                <input type="text" name="lekovi" onInput={handleInput} defaultValue={terapijaData.lekovi}/>
+            <div className="modalpolje" >
+                <p>Lekovi: </p><input type="text" name="lekovi" onInput={handleInput} defaultValue={terapijaData.lekovi}/>
             </div>
-            <div className="datumpregleda" >
-                <input type="text" name="nacin_primene" onInput={handleInput} defaultValue={terapijaData.nacin_primene}/>
+            <div className="modalpoljeopis" >
+                <p>Način primene</p><textarea type="text" name="nacin_primene" onInput={handleInput} defaultValue={terapijaData.nacin_primene}/>
             </div>
-            <div className="datumpregleda" >
-                <input type="text" name="komentar" onInput={handleInput} defaultValue={terapijaData.komentar}/>
+            <div className="modalpoljeopis" >
+                <p>Komentar: </p><textarea type="text" name="komentar" onInput={handleInput} defaultValue={terapijaData.komentar}/>
             </div>
-
-            <button onClick={handleIzmeniTerapiju}>
+            <div className="dugmeklasa">
+            <button className='izmenadugme' onClick={handleIzmeniTerapiju}>
                 IZMENI TERAPIJU
             </button>
+            </div>
 
         </div>
         </div>
         )}
 
-        </div>
+        
 
         <Outlet/>
 
