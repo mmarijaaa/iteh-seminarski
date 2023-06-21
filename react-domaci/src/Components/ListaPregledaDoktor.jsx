@@ -207,7 +207,7 @@ function handleSacuvajTerapiju(e) {
 
       <div className="listapregleda">
       <h1>Lista pregleda pacijenta:  {pacijent_name}</h1>
-        {pregledi == null ? <div><h2>NEMA Pregleda</h2></div> : pregledi.map((pregled)=>(
+        {pregledi == null ? <div></div> : pregledi.map((pregled)=>(
         <Pregled pregled={pregled} key={pregled.id}/>
         ))}
       </div>

@@ -22,6 +22,7 @@
 }
 html{
     scroll-behavior: smooth;
+    height: 100%;
 }
 
 a{
@@ -90,6 +91,10 @@ input{
 body{
     /*background: var(--bodyColor);*/
     background-color: #f4f4f4; 
+    padding-bottom: 350px;
+    min-height: 100%;
+    position: relative;
+    margin: 0;
 }
 
 /*media*/
