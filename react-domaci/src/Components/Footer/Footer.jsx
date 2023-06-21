@@ -1,5 +1,7 @@
 import React,  {useEffect, useRef} from 'react'
 import './footer.css'
+import '../forme.css'
+
 
 import emailjs from '@emailjs/browser'
 import video2 from '../../assets/vid2.mp4'

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './navbar.css'
 import { Link } from "react-router-dom";
 import '../forme.css';
@@ -20,7 +20,19 @@ const Navbar = ({token, token2}) => {
     setActive('navBar')
   }
 
+  /*let loginToken1=localStorage.getItem('auth_token');
+  const [t1, setT1]=useState(loginToken1);*/
+
+  /*useEffect(() => {
+    setT1(window.sessionStorage.getItem("auth_token"));
+  }, []);*/
+
+  /*useEffect(() => {
+    const loginToken1=localStorage.getItem('auth_token')
+    setT1(loginToken1)
+  }, [])*/
   
+  //console.log(">>>>>>>>"+t1+">>>>>>>>")
   
   //logout DOKTOR
   function handleLogout() {
@@ -74,6 +86,8 @@ const Navbar = ({token, token2}) => {
       console.log(error);
     });
   }
+
+  
 
   /*if(token!= null){
     return (<div className="">

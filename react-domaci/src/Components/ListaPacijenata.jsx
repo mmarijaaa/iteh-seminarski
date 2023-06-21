@@ -8,6 +8,9 @@ import { Outlet } from 'react-router-dom';
 
 const ListaPacijenata = () => {
     const [pacijents, setPacijents] = useState();
+    const [search, setSearch] = useState('');
+
+    console.log(search);
 
     let iddok = window.sessionStorage.getItem("user_id");
     useEffect(()=>{
@@ -46,10 +49,18 @@ const ListaPacijenata = () => {
   return (
     <div className="listapacijenata">
         <h1>Lista pacijenata</h1>
+        <div className='pretragaKlasa'><input type='text' className='pretraga' placeholder='Pretraži pacijente' onChange={(e) => setSearch(e.target.value)}></input></div>
+        
         {pacijents == null ? 
-          <div><h2>NEMA PACIJENATA</h2></div> 
-        : pacijents.map((pacijent)=>(
+          <div></div> 
+        : pacijents.filter((pacijent) => {
+          return search.toLowerCase() === ''  
+          ? pacijent
+          : pacijent.name.toLowerCase().includes(search);
+        }).map((pacijent)=>(
+
         <Pacijent pacijent={pacijent} key={pacijent.id}/>
+
         ))}
 
       
