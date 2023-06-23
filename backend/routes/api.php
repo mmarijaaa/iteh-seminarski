@@ -32,35 +32,49 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
         return auth()->user();
     });
 
+    //kreiranje novog pacijenta
     Route::post('/registerpacijent', [PacijentController::class, 'registerpacijent']);
 
+    //kreiranje pregleda za odredjenog pacijenta
     Route::post('/pregledpacijent/{id}', [PregledController::class, 'store']);
 
+    //kreiranje terapije za odredjeni pregled i pacijenta
     Route::post('/terapijapacijent/{id}/{parameter}', [TerapijaController::class, 'store']);
 
+    //izmena pregleda
     Route::put('/izmenapregled/{id}', [PregledController::class, 'update']);
 
+    //izmena pacijenta
+    Route::put('/izmenapacijent/{id}', [PacijentController::class, 'update']);
+
+    //logout doktora
     Route::post('/logout', [DRController::class, 'logout']);
 
-    /////
+    //prikaz terapije odredjenog pregleda i pacijenta
     Route::get('/terapija/{id}/{id_pac}/{id_preg}', [TerapijaController::class, 'index']);
 
+    //lista pacijenata odredjenog doktora
     Route::get('/doktor/{id}', [DoktorPacijentController::class, 'index']);
 
+    //lista pregleda odredjenog pacijenta
+    Route::get('/pregledi/{id}/{parameter}', [PregledController::class, 'index']);
+
+    //brisanje pacijenta
+    Route::delete('/brisanjepacijenta/{id}', [PacijentController::class, 'destroy']);
+
+    //brisanje pregleda
     Route::delete('/brisanjepregleda/{id}', [PregledController::class, 'destroy']);
 
+    //brisanje terapije
     Route::delete('/brisanjeterapije/{id}', [TerapijaController::class, 'destroy']);
+    Route::delete('/brisanjeterapijepregleda/{id}/{idpregl}', [TerapijaController::class, 'destroy2']);
+
+    //izmena terapije
+    Route::put('/izmenaterapija/{id}', [TerapijaController::class, 'update']); 
+
 });
 
-   
-    
-    
-    Route::get('/pregledi/{id}/{parameter}', [PregledController::class, 'index']);
-    Route::put('/izmenapacijent/{id}', [PacijentController::class, 'update']);
-    Route::delete('/brisanjepacijenta/{id}', [PacijentController::class, 'destroy']);
-    Route::put('/izmenaterapija/{id}', [TerapijaController::class, 'update']);
-    
-
+  
 Route::get('/doktor/{id}/pacijent', [PacijentController::class, 'vratiPacijenteSaIdDoktora']);
 Route::get('/pacijenti', [PacijentController::class, 'pacijenti']);
 Route::get('/svipacijenti', [PacijentController::class, 'show']);

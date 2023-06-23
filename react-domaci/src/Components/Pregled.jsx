@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios'; 
 import {Outlet, useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const Pregled = ({pregled, token}) => {
@@ -42,8 +43,13 @@ const Pregled = ({pregled, token}) => {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        alert('Pregled je izmenjen');
-        window.location.reload(false);
+        //alert('Pregled je izmenjen');
+        //window.location.reload(false);
+        Swal.fire(
+          'Podaci o pregledu su uspesno izmenjeni!' ,
+        ).then(function(){ 
+          window.location.reload();
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -65,8 +71,13 @@ const Pregled = ({pregled, token}) => {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        alert('Pregled je izbrisan!');
-        window.location.reload(false);
+        //alert('Pregled je izbrisan!');
+        //window.location.reload(false);
+        Swal.fire(
+          'Pregled je uspesno izbrisan!' ,
+        ).then(function(){ 
+          window.location.reload();
+          });
       })
       .catch((error) => {
         console.log(error);

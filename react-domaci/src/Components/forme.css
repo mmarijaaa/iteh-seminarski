@@ -303,7 +303,7 @@ hr {
     margin-bottom: 50px;
     justify-content: center;
     align-items: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
 }
 .linkovi {
@@ -515,6 +515,12 @@ hr {
     border: 1.5px solid #29335c;
     flex: 70%;
 }
+.modalpolje .ttxt {
+    color: #29335c;
+    font-size: 18px;
+    text-align: left;
+    flex: 60%;
+}
 .dugmeklasa {
     display: flex;
     justify-content: center;
@@ -552,6 +558,12 @@ hr {
     font-weight: bold;
     flex: 30%;
 }
+.modalpoljeopis .terapijatxt{
+    color: #29335c;
+    font-size: 18px;
+    text-align: right;
+    flex: 60%;
+}
 .modalpoljeopis {
     display: flex;
     flex-direction: row;
@@ -559,7 +571,7 @@ hr {
     margin-bottom: 10px;
     font-size: 20px;
     color: #29335c;
-    align-items: center;
+    /*align-items:center;*/
 }
 .modalpoljeopis input {
     color: #29335c;
@@ -583,7 +595,7 @@ hr {
 }
 /*------------Terapija-----------------*/
 .terapijainfo {
-    width: 500px;
+    width: 600px;
     background: rgba(255,255,255,0.5);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 50px;

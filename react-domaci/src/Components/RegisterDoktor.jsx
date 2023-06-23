@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import img6 from '../assets/slika4.png'
-
+import PocetnaMeni from './PocetnaMeni';
 
 const RegisterDoktor = () => {
 
@@ -37,7 +37,13 @@ const RegisterDoktor = () => {
     }
 
     return (
-        <section className='containerRegister'>
+
+        <section className='regcont'>
+            <PocetnaMeni/>
+        <div className='containerRegister'>
+
+
+
         
         <div className='formalogin'>  
         <h1>Registracija doktora</h1>
@@ -79,6 +85,7 @@ const RegisterDoktor = () => {
         </div>
         <div className="slikadesno">
             <img src={img6} alt="" />
+        </div>
         </div>
         </section>
 

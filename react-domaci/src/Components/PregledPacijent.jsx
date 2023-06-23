@@ -45,10 +45,10 @@ const PregledPacijent = ({pregled}) => {
             {pregled.id}
             </div>*/}
             <div className="modalpolje">
-            <p>Vreme pregleda: </p>{pregled.datum_pregleda}
+            <p>Vreme pregleda: </p> <div className="ttxt">{pregled.datum_pregleda}</div>
             </div>
             <div className="modalpolje">
-            <p>Opis pregleda: </p>{pregled.opis}
+            <p>Opis pregleda: </p> <div className="ttxt">{pregled.opis}</div>
             </div>
         </div>
 

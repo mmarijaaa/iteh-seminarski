@@ -42,11 +42,12 @@ class DRController extends Controller
         ]);
 
         if($validator->fails())
-            //return response()->json($validator->errors());
-            return response()->json(['error'=>'Greska prilikom popunjavanja forme!']);
+            return response()->json($validator->errors());
+            //return response()->json(['error'=>'Greska prilikom popunjavanja forme!']);
 
        if(!Auth::attempt($request->only('email', 'password')))
-            return response()->json(['success'=>false, 'error'=>'Greska prilikom popunjavanja forme!']);
+            //return response()->json(['success'=>false, 'error'=>'Greska prilikom popunjavanja forme!']);
+            return response()->json(['success'=>false, 'greska'=>'Greska prilikom popunjavanja forme!']);  
         
         $user=User::where('email', $request['email'])->firstOrFail();
         $token=$user->createToken('auth_token')->plainTextToken;

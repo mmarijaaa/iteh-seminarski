@@ -6,6 +6,7 @@ import 'aos/dist/aos.css'
 import dr1 from '../../assets/jelena.JPG'
 import dr2 from '../../assets/ana.jpg'
 import dr3 from '../../assets/jovana.jpg'
+import PocetnaMeni from '../PocetnaMeni'
 
 const Ab = () => {
   useEffect(()=>{
@@ -14,6 +15,9 @@ const Ab = () => {
 
   return (
     <section className='container-about'>
+
+<PocetnaMeni/>
+
       {/*<div class="red-a">
 
         <div class="o-meni-col">

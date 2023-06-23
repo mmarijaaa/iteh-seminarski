@@ -119,4 +119,13 @@ class TerapijaController extends Controller
         return response()->json('Terapija uspesno obrisana');
 
     }
+    public function destroy2($id, $idpregleda)
+    {
+        $terapija=Terapija::find($id)->where('id_pregled',$idpregleda);
+
+        $terapija->delete();
+
+        return response()->json('Terapija uspesno obrisana');
+
+    }
 }

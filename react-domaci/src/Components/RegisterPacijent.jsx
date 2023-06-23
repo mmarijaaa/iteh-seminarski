@@ -3,7 +3,7 @@ import './forme.css';
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-
+import Swal from 'sweetalert2'
 
 const RegisterPacijent = ({token}) => {
 
@@ -17,7 +17,6 @@ const RegisterPacijent = ({token}) => {
         id_doktor:""
     });
 
-    //let navigate = useNavigate();
 
     function handleInput(e) {
          let newPacijentData = pacijentData;
@@ -25,6 +24,7 @@ const RegisterPacijent = ({token}) => {
          setPacijentData(newPacijentData);
     }
 
+    //kreiranje pacijenta
     function handleRegister(e) {
         e.preventDefault();
         var config = {
@@ -40,20 +40,26 @@ const RegisterPacijent = ({token}) => {
           .then((response) => {
             console.log(JSON.stringify(response.data));
             //console.log("Uspelo kreiranje pacijenta");  
-            alert("Pacijent kreiran!");
+            //alert("Pacijent kreiran!");
+            Swal.fire(
+                'Pacijent je uspesno kreiran!' ,
+              ).then(function(){ 
+                window.location.reload();
+                });
+           // window.location.reload(false);
           })
           .catch((error) => {
             console.log(error);
           });
+          
     }
-
-
-
-
+    
+    
+    
     return (
         <section>
         <div className='formalogin'> 
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleRegister} className='frm'>
                 
                 <div className="forma">
                 <h1>KREIRANJE PACIJENTA</h1> 
@@ -64,6 +70,7 @@ const RegisterPacijent = ({token}) => {
                         placeholder="Unesite ime deteta"
                         onInput={handleInput}
                         name="name"
+                        
                     />
                     <input 
                         type="text"
@@ -109,6 +116,7 @@ const RegisterPacijent = ({token}) => {
                     <button
                         type="submit"
                         className="dugme"
+                        
                     >
                     Register Pacijent
                     </button>
