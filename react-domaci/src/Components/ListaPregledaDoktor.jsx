@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Pregled from './Pregled';
-
+import Swal from 'sweetalert2';
 
 const ListaPregledaDoktor = () => {
 
@@ -45,9 +45,12 @@ function handleZakaziPregled(e) {
     axios(config)
     .then((response) => {
       console.log(JSON.stringify(response.data));
-      alert("Pregled evidentiran!"); 
+      //alert("Pregled evidentiran!"); 
       setPregledData(response.data.pregledi);
       window.sessionStorage.setItem("pregled_id_terapija",response.data.pregledi.id);
+      Swal.fire(
+        'Pregled je uspesno kreiran!' 
+      )
     })
     .catch((error) => {
       console.log(error);
@@ -62,11 +65,31 @@ let iddok = window.sessionStorage.getItem("user_id");
 
 useEffect(()=>{
   if(pregledi == null) {
-    axios
+    /*axios
     .get('http://127.0.0.1:8000/api/pregledi/'+ iddok + '/' + idpacijenta) 
     .then((res)=>{ 
     console.log(res.data);
     setPregledi(res.data.pregledi);
+    });*/
+
+    let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: 'http://127.0.0.1:8000/api/pregledi/'+ iddok + '/' + idpacijenta,
+      headers: { 
+        'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+        
+      },
+      data : pregledi
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      setPregledi(response.data.pregledi);
+    })
+    .catch((error) => {
+      console.log(error);
     });
   }
 }, [pregledi]
@@ -113,6 +136,7 @@ function handleInput2(e) {
   setTerapijaData(newTerapijaData);
 }
 
+//cuvanje terapije
 function handleSacuvajTerapiju(e) { 
 
   e.preventDefault();
@@ -132,8 +156,13 @@ function handleSacuvajTerapiju(e) {
     axios(config)
     .then((response2) => {
       console.log(JSON.stringify(response2.data));
-      alert("Terapija kreirana!"); 
-      
+      //alert("Terapija kreirana!"); 
+      //window.location.reload(false);
+      Swal.fire(
+        'Terapija je uspesno kreirana!' ,
+      ).then(function(){ 
+        window.location.reload();
+        });
     })
     .catch((error) => {
       console.log(error);

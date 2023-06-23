@@ -5,7 +5,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 
 const Pacijent = ({pacijent}) => {
 
@@ -27,10 +27,11 @@ const Pacijent = ({pacijent}) => {
     setPacijentData(newPacijentData);
   } 
 
+  //izmena pacijenta
   function handleIzmena(e) {
     let idpac=pacijent.id;
      e.preventDefault(); 
-        axios
+        /*axios
         .put("http://127.0.0.1:8000/api/izmenapacijent/"+idpac,   
         pacijentData)
         .then((res)=> {
@@ -40,15 +41,40 @@ const Pacijent = ({pacijent}) => {
         })
         .catch((e)=> {
             console.log(e); 
+        });*/
+        let config = {
+          method: 'put',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:8000/api/izmenapacijent/'+idpac,
+          headers: { 
+            'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+            
+          },
+          data : pacijentData
+        };
+        
+        axios.request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          //alert("Pacijent izmenjen!");
+          //window.location.reload(false);
+          Swal.fire(
+            'Podaci o pacijentu su uspesno izmenjeni!' ,
+          ).then(function(){ 
+            window.location.reload();
+            });
+        })
+        .catch((error) => {
+          console.log(error);
         });
-
         
   }
 
+  //brisanje pacijenta
   function handleBrisanje(e) {
     let idpac=pacijent.id;
      //e.preventDefault(); 
-        axios
+        /*axios
         .delete("http://127.0.0.1:8000/api/brisanjepacijenta/"+idpac)
         .then((res)=> {
             console.log("Obrisano");  
@@ -57,7 +83,33 @@ const Pacijent = ({pacijent}) => {
         })
         .catch((e)=> {
             console.log(e); 
+        });*/
+        let config = {
+          method: 'delete',
+          maxBodyLength: Infinity,
+          url: 'http://127.0.0.1:8000/api/brisanjepacijenta/'+idpac,
+          headers: { 
+            'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+            
+          },
+          
+        };
+        
+        axios.request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          //alert("Pacijent obrisan");
+          //window.location.reload(false);
+          Swal.fire(
+            'Pacijent je uspesno obrisan!' ,
+          ).then(function(){ 
+            window.location.reload();
+            });
+        })
+        .catch((error) => {
+          console.log(error);
         });
+
   }
 
   function handlePregled() {
@@ -111,9 +163,6 @@ const Pacijent = ({pacijent}) => {
         <button className="polje2" onClick={handleBrisanje}>
           BRISANJE
         </button>
-        {/*<button onClick={handlePregled}>
-          ZAKAZI PREGLED
-        </button>*/}
         <Link className="polje2" to='/doktor/listapregleda' onClick={handlePregled}>PREGLEDI</Link>
     </div>
 

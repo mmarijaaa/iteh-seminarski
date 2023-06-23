@@ -7,14 +7,20 @@ import email from '../../assets/env.png'
 import insta from '../../assets/instagram.png'
 import fb from '../../assets/fb.png'
 import time from '../../assets/clock.png'
+import PocetnaMeni from '../PocetnaMeni'
+import ProfilDoktora from '../ProfilDoktora'
 
-
-const Kontakt = () => {
+const Kontakt = ({token}) => {
     useEffect(()=>{
         Aos.init({duration: 2000})
       }, [])
     return (
+        
         <div className="kontakt">
+
+<PocetnaMeni/>
+               
+
 
             <div className="kontaktslika">
               <div className="ktekst">

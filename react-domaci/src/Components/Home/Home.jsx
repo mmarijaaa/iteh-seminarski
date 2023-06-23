@@ -9,6 +9,7 @@ import {BsCalendarDate} from 'react-icons/bs'
 import {BsFacebook} from 'react-icons/bs'
 import {BsInstagram} from 'react-icons/bs'
 import {AiOutlinePhone} from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 import Aos, { init } from 'aos'
 import 'aos/dist/aos.css'
@@ -20,6 +21,7 @@ const Home = () => {
   }, [])
   return (
     <section className='home'>
+
       <div className="overplay"></div>
       <video src={video} muted autoPlay loop type="video/mp4"></video>
 

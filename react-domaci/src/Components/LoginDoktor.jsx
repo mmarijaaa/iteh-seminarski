@@ -3,7 +3,8 @@ import './forme.css';
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-
+import PocetnaMeni from './PocetnaMeni';
+import Swal from 'sweetalert2';
 
 const LoginDoktor = ({addToken}) => {
 
@@ -12,7 +13,7 @@ const LoginDoktor = ({addToken}) => {
         password:""
     });
 
-    const[errors, setErrors] = useState();
+    const[error, setError] = useState();
 
     
 
@@ -40,20 +41,32 @@ const LoginDoktor = ({addToken}) => {
                 addToken(res.data.access_token);
                 navigate("/doktor"); 
             }
+            else {
+                console.log("greska");
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Niste uneli ispravne podatke!'
+                  })
+            }
         })
         .catch((e)=> {
-            //console.log(e);
-            //console.log(e.response.error);
-            setErrors(e.response.data.error);
+            
+            console.log(e.response.error);
+          
         });
     }
 
 
     return (
         <section>
+
+        <PocetnaMeni/>
+
             
         <div className='formalogin'> 
         <h1>Prijava doktora</h1>
+
+            {/*error ? {error} : <></>*/}
 
             <form onSubmit={handleLogin}>
                 <div className="forma">

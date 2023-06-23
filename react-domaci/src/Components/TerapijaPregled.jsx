@@ -8,13 +8,13 @@ const TerapijaPregled = ({terapija}) => {
   return (
     <div>
          <div className="modalpolje" >
-            <p>Lekovi:</p> {terapija.lekovi}
+            <p>Lekovi:</p> <div className="ttxt">{terapija.lekovi}</div>
         </div>
         <div className="modalpolje" >
-            <p>Način primene:</p> {terapija.nacin_primene}
+            <p>Način primene:</p> <div className="ttxt">{terapija.nacin_primene}</div>
         </div>
         <div className="modalpolje" >
-            <p>Komentar:</p> {terapija.komentar}
+            <p>Komentar:</p> <div className="ttxt">{terapija.komentar}</div>
         </div>
 
     </div>

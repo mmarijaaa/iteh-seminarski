@@ -3,7 +3,8 @@ import './forme.css';
 import { useState } from 'react';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-
+import PocetnaMeni from './PocetnaMeni';
+import Swal from 'sweetalert2';
 
 const LoginPacijent = ({addToken2}) => {
 
@@ -35,6 +36,13 @@ const LoginPacijent = ({addToken2}) => {
                 addToken2(res2.data.access_token);
                 navigate("/pacijent");
             }
+            else {
+                console.log("greska");
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Niste uneli ispravne podatke!'
+                  })
+            }
         })
         .catch((e)=> {
             console.log(e);
@@ -44,6 +52,10 @@ const LoginPacijent = ({addToken2}) => {
 
     return (
         <section>
+
+<PocetnaMeni/>
+
+
         <div className='formalogin'> 
         <h1>Prijava pacijenta</h1>
             <form onSubmit={handleLogin}>

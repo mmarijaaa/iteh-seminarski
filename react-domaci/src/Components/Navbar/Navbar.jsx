@@ -9,7 +9,7 @@ import axios from "axios";
 import { Outlet } from 'react-router-dom';
 import { BsNodePlusFill } from 'react-icons/bs';
 
-const Navbar = ({token, token2}) => {
+const Navbar = ({token, token2, addToken}) => {
 
   const [active, setActive]=useState('navBar');
   const showNav=()=>{
@@ -19,6 +19,15 @@ const Navbar = ({token, token2}) => {
   const removeNavbar=()=>{
     setActive('navBar')
   }
+
+  /*useEffect(()=> {
+    if(window.sessionStorage.getItem('auth_token') != null) {
+      addToken(window.sessionStorage.getItem('auth_token'));
+
+    } else{
+      addToken(null)
+    }
+  })
 
   /*let loginToken1=localStorage.getItem('auth_token');
   const [t1, setT1]=useState(loginToken1);*/
@@ -36,11 +45,12 @@ const Navbar = ({token, token2}) => {
   
   //logout DOKTOR
   function handleLogout() {
+    
     var config = {
       method: 'post',
       url: 'http://127.0.0.1:8000/api/logout',
       headers: { 
-        'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token"), 
+        'Authorization': 'Bearer '+ window.sessionStorage.getItem("auth_token2"), 
       }
     };
     
@@ -126,6 +136,12 @@ const Navbar = ({token, token2}) => {
             <li className="navItem">
               <a href="/kontakt" className="navLink">Kontakt</a>
             </li>
+
+
+
+
+
+
           </div>
 
           <div className="el2">
@@ -140,7 +156,7 @@ const Navbar = ({token, token2}) => {
           
 
             
-            {token == null && token2 == null ?  
+            {token == null ?  
             
             
             <div className="el3">
@@ -159,19 +175,15 @@ const Navbar = ({token, token2}) => {
 
             </div>
             
-
             : 
             
-            token != null 
-            
-            ? 
             <div className="el3">
             <li className="navItem">
               <Link to="/login" className="navLink" onClick={handleLogout}>DOKTOR LOGOUT </Link>
             </li>
             </div>
-            :
-
+            
+/*
             token2 != null ?
 
             <div className="el3">
@@ -181,9 +193,9 @@ const Navbar = ({token, token2}) => {
             </div>
             :
 
-            <></>
+            <></>*/
          
-            }
+  }
 
 </div>
 

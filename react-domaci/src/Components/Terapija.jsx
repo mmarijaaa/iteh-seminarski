@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios'; 
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Terapija = ({terapija, token}) => {
 
@@ -51,6 +52,7 @@ const Terapija = ({terapija, token}) => {
           });
     }*/
 
+    //izmena terapije
     function handleIzmeniTerapiju(e) {
 
       e.preventDefault();
@@ -68,14 +70,20 @@ const Terapija = ({terapija, token}) => {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
-        window.location.reload(false);
+        //alert("Terapija izmenjena!");
+        //window.location.reload(false);
+        Swal.fire(
+          'Podaci o terapiji su uspesno izmenjeni!' ,
+        ).then(function(){ 
+          window.location.reload();
+          });
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  function handleBrisanje() {
+  /*function handleBrisanje() {
     let config = {
       method: 'delete',
       url: 'http://127.0.0.1:8000/api/brisanjeterapije/'+terapija.id,
@@ -95,7 +103,7 @@ const Terapija = ({terapija, token}) => {
     .catch((error) => {
       console.log(error);
     });
-  }
+  }*/
 
 
     //MODAL - POPUP 
@@ -125,15 +133,18 @@ const Terapija = ({terapija, token}) => {
         
         <div className="modalpolje" >
             {/*NAZIV: {terapija.lekovi}*/}
-            <p>Lekovi: </p>{terapija.lekovi}
+            <p className='terapijanaslov'>Lekovi: </p>
+            <div className='terapijatxt'>{terapija.lekovi}</div>
         </div>
         <div className="modalpoljeopis" >
             {/*NACIN PRIMENE: {terapija.nacin_primene}*/}
-            <p>Način primene: </p>{terapija.nacin_primene}
+            <p className='terapijanaslov'>Način primene: </p>
+            <div className='terapijatxt'>{terapija.nacin_primene}</div>
         </div>
         <div className="modalpoljeopis" >
             {/*KOMENTAR: {terapija.komentar}*/}
-            <p>Komentar: </p>{terapija.komentar}
+            <p className='terapijanaslov'>Komentar: </p>
+            <div className='terapijatxt'>{terapija.komentar}</div>
         </div>
         <div className="dugmeklasa">
         <button className='izmenadugme' onClick={toggleModal}>
