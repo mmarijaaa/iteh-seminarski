@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './navbar.css'
+
 import { Link } from "react-router-dom";
 import '../forme.css';
 import {AiFillCloseCircle} from 'react-icons/ai'
@@ -126,6 +127,10 @@ const Navbar = ({token, token2, addToken}) => {
           
           <div className='allElements'>
           <div className="el1">
+            <input type="checkbox" id='check' />
+            <label htmlFor="check">
+              <i className='fas fa-bars'></i>
+            </label>
             <li className="navItem">
               <Link to="/" className="navLink">Početna</Link>
             </li>

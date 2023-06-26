@@ -39,7 +39,7 @@ const Footer = () => {
     
     <footer >
         <div class="red-footer">
-            <div class="footer-col">
+            <div class="footer-col-logo">
                 <img src={logo} alt=''/>
                 
             </div>

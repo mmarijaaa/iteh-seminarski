@@ -5,6 +5,7 @@ import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 import img6 from '../assets/slika4.png'
 import PocetnaMeni from './PocetnaMeni';
+import Swal from 'sweetalert2'
 
 const RegisterDoktor = () => {
 
@@ -29,7 +30,19 @@ const RegisterDoktor = () => {
         doktorData)
         .then((res)=> {
             console.log(res.data);  
-            navigate("/login"); 
+            if(res.data.success == true) {
+                Swal.fire({
+                    text: 'Uspesna registracija!'
+                })
+                navigate("/login");
+
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Niste uneli ispravne podatke!'
+                  })
+            }  
         })
         .catch((e)=> {
             console.log(e); 

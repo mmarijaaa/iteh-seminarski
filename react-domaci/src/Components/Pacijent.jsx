@@ -58,11 +58,19 @@ const Pacijent = ({pacijent}) => {
           console.log(JSON.stringify(response.data));
           //alert("Pacijent izmenjen!");
           //window.location.reload(false);
-          Swal.fire(
-            'Podaci o pacijentu su uspesno izmenjeni!' ,
-          ).then(function(){ 
+          if(response.data.success == true) {
+            Swal.fire(
+            'Pacijent je uspesno ažuriran!' ,
+          ).then(function(){
             window.location.reload();
             });
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                text: 'Niste uneli ispravne podatke!'
+              })
+        }
         })
         .catch((error) => {
           console.log(error);
