@@ -44,7 +44,7 @@ const Kontakt = ({token}) => {
                         <p>Ana:</p>
                         <p>061 1234 567</p>
                         <p>Jovana:</p>
-                        <p>o62 1234 567</p>
+                        <p>062 1234 567</p>
                     </div>
                 </div>
 

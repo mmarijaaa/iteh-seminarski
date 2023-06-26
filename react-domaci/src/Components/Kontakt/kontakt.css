@@ -30,8 +30,7 @@
 }
 #mapaslika {
     width: 100%;
-    height: 600px;
-   
+    height: 600px; 
 }
 .mapa {
     margin-bottom: 100px;
@@ -123,4 +122,53 @@
 .txt p {
     margin-bottom: 15px;
     color: #29335C;
+}
+
+
+@media screen and (max-width:500px){
+    .kontaktslika {  
+        height: 300px;
+        width: 100%;
+    }
+
+    .ktekst {
+        width: 200px;
+        height: 100px;
+    }
+    #podvuceno {
+        font-size: 26px;
+    }
+    #mapaslika {  
+        height: 300px; 
+    }
+    .mapa {
+        margin-bottom: 30px;
+    }
+    .info {
+        flex-direction: column;
+        height: 100%;
+    }
+    .slicica img{
+        height: 40px;
+        width: 40px;
+        margin: 25px;
+        margin-top: 45px;
+    }
+    .info .telefoni {
+        padding-left: 70px;
+    }
+    .txttel {
+        margin-top: 40px;
+    }
+    .txttel p{
+        margin-bottom: 12px;   
+    }
+    .txt p {
+        margin-bottom: 12px;
+    }
+    .txtadr p {
+        margin-bottom: 12px;
+    }
+    
+   
 }

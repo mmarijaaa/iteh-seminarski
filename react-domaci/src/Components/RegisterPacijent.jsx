@@ -41,11 +41,19 @@ const RegisterPacijent = ({token}) => {
             console.log(JSON.stringify(response.data));
             //console.log("Uspelo kreiranje pacijenta");  
             //alert("Pacijent kreiran!");
-            Swal.fire(
+            if(response.data.success == true) {
+                Swal.fire(
                 'Pacijent je uspesno kreiran!' ,
-              ).then(function(){ 
+              ).then(function(){
                 window.location.reload();
                 });
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Niste uneli ispravne podatke!'
+                  })
+            }
            // window.location.reload(false);
           })
           .catch((error) => {
@@ -118,7 +126,7 @@ const RegisterPacijent = ({token}) => {
                         className="dugme"
                         
                     >
-                    Register Pacijent
+                    Sačuvaj pacijenta
                     </button>
 
                    

@@ -51,7 +51,7 @@ class PregledController extends Controller
         ]);
 
         if($validator->fails())
-        return response()->json($validator->errors()); 
+        return response()->json(['success'=> false, $validator->errors()]); 
 
         $pregled = Pregled::create([
             'id_doktor'=>Auth::user()->id,

@@ -48,9 +48,9 @@ function handleZakaziPregled(e) {
       //alert("Pregled evidentiran!"); 
       setPregledData(response.data.pregledi);
       window.sessionStorage.setItem("pregled_id_terapija",response.data.pregledi.id);
-      Swal.fire(
-        'Pregled je uspesno kreiran!' 
-      )
+        Swal.fire(
+          'Pregled je uspesno kreiran!' 
+        )
     })
     .catch((error) => {
       console.log(error);

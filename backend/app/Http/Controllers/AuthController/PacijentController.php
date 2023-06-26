@@ -42,7 +42,7 @@ class PacijentController extends Controller
 
         $token=$user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['data'=>$user, 'access_token'=>$token, 'token_type'=>'Bearer']);
+        return response()->json(['success'=>true, 'data'=>$user, 'access_token'=>$token, 'token_type'=>'Bearer']);
     }
 
     public function vratiPacijenteSaIdDoktora($id_doktor){
@@ -119,7 +119,7 @@ class PacijentController extends Controller
 
         $pacijent->save();
 
-        return response()->json(['Pacijent uspesno azuriran.', $pacijent]); 
+        return response()->json(['success'=>true,'Pacijent uspesno azuriran.', $pacijent]); 
     }
 
     public function destroy($id){
