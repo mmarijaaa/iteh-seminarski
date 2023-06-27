@@ -2,6 +2,16 @@ body.active-modal {
     overflow-y: hidden;
 }
 
+#ime {
+    padding-top: 20px;
+    font-size: 20px;
+    color: #29335C;
+    padding-left: 20px;
+    text-decoration: underline;
+    text-decoration-color: #f3a712;
+    text-decoration-thickness: 2px;
+}
+
 .formalogin {
     display: flex;
     flex-direction: column;

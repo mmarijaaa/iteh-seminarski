@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './forme.css';
 import { Outlet } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -8,6 +8,30 @@ import logo from '../assets/logo36.png'
 
 const ProfilDoktora = () => {
 
+  const [imedoktora, setImedoktora] = useState();
+  let user_id = window.sessionStorage.getItem("user_id");
+  //prikaz imena doktora
+  let config = {
+    method: 'get',
+    url: 'http://127.0.0.1:8000/api/dr/'+user_id,
+    headers: { 
+      'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token")
+    },
+    data : imedoktora
+  };
+  
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+    console.log(response.data.name);
+    setImedoktora(response.data.name);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+
+  //logout doktora
     function handleLogout() {
     var config = {
       method: 'post',
@@ -36,7 +60,12 @@ const ProfilDoktora = () => {
 
     return(
 
+      <div className="pocetnasve">
+          
+          <p id='ime'>Dr {imedoktora}</p>
+
         <div className='pocetna'>
+
             <div className="linkovi">
 
             {/*<div className="el1">
@@ -67,7 +96,7 @@ const ProfilDoktora = () => {
         <Outlet/>
         </div>
 
-        
+        </div>
 
     );
 
