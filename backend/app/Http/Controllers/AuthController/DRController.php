@@ -74,6 +74,11 @@ class DRController extends Controller
         //auth()->user()->tokens()->delete();
         return['message'=>"Uspesno izlogovani."];
     }
+
+    public function doktor($iddoktora) {
+        $doktor = User::find($iddoktora);
+        return response()->json($doktor); 
+    }
 }
 
 

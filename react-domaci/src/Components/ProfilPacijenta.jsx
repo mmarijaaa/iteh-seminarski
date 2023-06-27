@@ -8,6 +8,32 @@ import { Link } from 'react-router-dom';
 
 const ProfilPacijenta = () => {
 
+  const[imepacijenta, setImepacijenta] = useState();
+  let pac_id = window.sessionStorage.getItem("pacijent_user_id");
+  //prikaz imena pacijenta
+  let config = {
+    method: 'get',
+    url: 'http://127.0.0.1:8000/api/pac/'+pac_id,
+    headers: { 
+      'Content-Type': 'application/json', 
+      'Authorization': 'Bearer '+window.sessionStorage.getItem("auth_token2")
+    },
+    data : imepacijenta
+  };
+  
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+    console.log(response.data.name);
+    setImepacijenta(response.data.name);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+  
+
+  //logout pacijenta
   function handleLogout2() {
     var config = {
       method: 'post',
@@ -34,12 +60,17 @@ const ProfilPacijenta = () => {
   }
 
     return(
+      <div className="pocetnasve">
+
+        <p id='ime'>Pacijent {imepacijenta}</p>
+
       <div className='pocetna'>
         <div className='linkovi'>
             <Link className="link" to='/pacijent/listapregleda'>Lista pregleda</Link>
             <Link className="link" to ="/loginpacijent" onClick={handleLogout2}>Odjava</Link> 
         </div>
         <Outlet/>
+      </div>
       </div>
     );
 

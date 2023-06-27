@@ -72,6 +72,8 @@ Route::group(['middleware'=> ['auth:sanctum']], function() {
     //izmena terapije
     Route::put('/izmenaterapija/{id}', [TerapijaController::class, 'update']); 
 
+    Route::get('/dr/{iddok}', [DRController::class, 'doktor']);
+
 });
 
   
@@ -98,6 +100,8 @@ Route::group(['middleware'=> ['auth:sanctum','abilities:pacijent']], function() 
     Route::get('/pregled/{id_pacijent}', [PregledController::class, 'index2']);
     Route::post('/logoutpacijent', [PacijentController::class, 'logoutpacijent']);
     Route::get('/terapija/{id_preg}', [TerapijaController::class, 'index2']);
+
+    Route::get('/pac/{idpac}', [PacijentController::class, 'pacijent']);
  
 });
 
